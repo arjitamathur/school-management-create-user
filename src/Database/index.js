@@ -27,12 +27,12 @@ export class LocalStorageFormHandler {
 
     getData(id){
         const parsedFormData = this.getAllData();
-        return parsedFormData.find(o => o.id == id);
+        return parsedFormData.find(o => o.id === id);
     }
 
     getProfileData(email){
         const parsedFormData = this.getAllData();
-        return parsedFormData.find(o => o.email == email);
+        return parsedFormData.find(o => o.email === email);
     }
 
     deleteData(id){
@@ -48,7 +48,7 @@ export class LocalStorageFormHandler {
             ...data,
             id: id
         }
-        let updatedData = parsedFormData.filter(o => o.id != id);
+        let updatedData = parsedFormData.filter(o => o.id !== id);
         updatedData.push(formData)
         localStorage.setItem(this.dataKey, JSON.stringify(updatedData));
         return updatedData;
