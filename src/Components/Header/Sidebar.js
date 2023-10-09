@@ -90,6 +90,14 @@ function Sidebar() {
             </>
           ) : userProfile.role === UserRoles.TEACHER ? (
             <>
+            <li>
+                <a
+                  href="/profile"
+                  className={activeLink === "/profile" ? "active" : ""}
+                >
+                  Your Profile
+                </a>
+              </li>
               <li>
                 <a
                   href="/class"
@@ -106,17 +114,19 @@ function Sidebar() {
                   Subjects
                 </a>
               </li>
-              <li>
+             
+            </>
+          ) :    (
+            <>
+            <li>
                 <a
-                  href="/students"
-                  className={activeLink === "/students" ? "active" : ""}
+                  href="/profile"
+                  className={activeLink === "/profile" ? "active" : ""}
                 >
-                  Students
+                  Your Profile
                 </a>
               </li>
             </>
-          ) :    (
-            <>{/* Show nothing for student from sidebar menu */}</>
           )}
         </ul>
       </nav>

@@ -141,12 +141,7 @@ const Login = () => {
                   Login
                 </Button>
               </Form>
-              <p className="mt-3">
-                Don't Have an Account{" "}
-                <span>
-                  <NavLink to="/register">SignUp</NavLink>
-                </span>{" "}
-              </p>
+          
             </div>
             <SignImg />
           </section>

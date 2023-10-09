@@ -1,0 +1,71 @@
+{
+  "classes": [
+    {
+      "name": "1",
+      "status": "active",
+      "id": 1
+    },
+    {
+      "name": "2",
+      "status": "active",
+      "id": 2
+    }
+  ],
+  "subjects": [
+    {
+      "class": "1",
+      "subject": "science",
+      "id": 1
+    },
+    {
+      "class": "1",
+      "subject": "hindi",
+      "id": 2
+    },
+    {
+      "class": "2",
+      "subject": "maths",
+      "id": 3
+    },
+    {
+      "class": "2",
+      "subject": "science",
+      "id": 4
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "role": "admin",
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "password": "1234567"
+    },
+    {
+      "name": "maam",
+      "mobile": "",
+      "class": "1",
+      "subjects": [
+        "science"
+      ],
+      "status": "active",
+      "email": "maam2@gmail.com",
+      "password": "1234567",
+      "role": "teacher",
+      "id": 2
+    },
+    {
+      "name": "Student",
+      "mobile": "",
+      "class": "1",
+      "subjects": [
+        "science"
+      ],
+      "status": "active",
+      "email": "student@yama.com",
+      "password": "1234567",
+      "role": "student",
+      "id": 3
+    }
+  ]
+}
