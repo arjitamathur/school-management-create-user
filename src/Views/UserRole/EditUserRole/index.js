@@ -44,22 +44,23 @@ function EditUserRole() {
     getSubjects();
   }, []);
 
-  const getUserRoleDetail = () => {
-    const response = getAllUserRole(id);
-    setUserRoleDetail(response);
+  const getUserRoleDetail = async() => {
+    const response = await getAllUserRole(id);
+    setUserRoleDetail(response.data);
   };
 
-  const getClasses = () => {
-    const response = getAllClass();
-    setClass(response);
+  const getClasses = async () => {
+    const response = await getAllClass();
+    setClass(response.data);
   };
 
-  const getSubjects = () => {
-    const response = getAllSubject();
-    setSubject(response);
+  const getSubjects = async () => {
+    const response = await  getAllSubject();
+    setSubject(response.data);
   };
 
   const handaleFormSubmit = async (e) => {
+    console.log("e------",e)
     const selectedRole = e.role;
 
     let roleValue;
@@ -70,7 +71,7 @@ function EditUserRole() {
       roleValue = UserRoles.STUDENT;
     }
 
-    editUserRole({ id, ...e, role: roleValue });
+    await editUserRole({ id, ...e, role: roleValue });
     navigate("/userrole");
   };
 
@@ -87,7 +88,7 @@ function EditUserRole() {
     }
   };
 
-  const getValues = (a, b, c) => {
+  const getValues = (a, b, c) => { 
     console.log(a, b, c);
   };
 
@@ -254,6 +255,7 @@ function EditUserRole() {
                                     key={item.id}
                                     onChange={handleChange}
                                     value={item.subject}
+                                    checked= {item.isSelected}
                                   />
                                 ))
                             : ""}

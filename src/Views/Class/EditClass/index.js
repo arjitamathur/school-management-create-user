@@ -23,8 +23,8 @@ function EditClass() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const [classDetail, setClassDetail] = useState(null);
-  const [error, setError] = useState("");
+  const [classDetail, setClassDetail] = useState([]);
+
 
   useEffect(() => {
     getDetail();
@@ -33,7 +33,7 @@ function EditClass() {
   const getDetail = async () => {
     if (id) {
       const response =await getAllClass(id);
-      setClassDetail(response);
+      setClassDetail(response.data);
     }
   };
 
@@ -55,10 +55,7 @@ function EditClass() {
 
 
   const formik = useFormik({
-    initialValues: classDetail || {
-      name: "",
-      status: ClassStatus.ACTIVE,
-    },
+    initialValues:  {classDetail},
     validationSchema: yup.object().shape({
       name: yup
         .number()
@@ -89,7 +86,7 @@ function EditClass() {
         );
       } else {
        await editClass(id, values);
-        navigate("/");
+        navigate("/class/list");
       }
     },
   });

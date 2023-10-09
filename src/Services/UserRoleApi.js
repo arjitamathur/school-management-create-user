@@ -21,7 +21,8 @@ export const editUserRole = async (id, user) => {
    if(authenticatedUser.id===id){
 return new Promise(null) ;
    }
-   return await axios.put(`${baseUrl}/users/${id}`,user);
+   console.log("id user" , id , user)
+   return await axios.put(`${baseUrl}/users/${id.id}`,id);
 
 }
 

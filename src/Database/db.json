@@ -55,17 +55,30 @@
       "id": 2
     },
     {
+      "id": 3,
       "name": "Student",
+      "mobile": "",
+      "class": "1",
+      "subjects": [
+        "hindi"
+      ],
+      "status": "active",
+      "email": "student@yama.com",
+      "password": "1234567",
+      "role": "student"
+    },
+    {
+      "name": "shweta",
       "mobile": "",
       "class": "1",
       "subjects": [
         "science"
       ],
       "status": "active",
-      "email": "student@yama.com",
+      "email": "shweta@yahoo.com",
       "password": "1234567",
-      "role": "student",
-      "id": 3
+      "role": "teacher",
+      "id": 4
     }
   ]
 }
