@@ -1,4 +1,5 @@
 import React, { useEffect} from "react";
+
 import {
   MDBCol,
   MDBContainer,
@@ -16,21 +17,7 @@ export default function TeacherCom({ teacherData }) {
   return (
     <section style={{ backgroundColor: "#eee" }}>
       <MDBContainer className="py-5">
-        {/* <MDBRow>
-          {/* <MDBCol>
-            <MDBBreadcrumb className="bg-light rounded-3 p-3 mb-4">
-              <MDBBreadcrumbItem>
-                <a href="#">Home</a>
-              </MDBBreadcrumbItem>
-              <MDBBreadcrumbItem>
-                <a href="#">User</a>
-              </MDBBreadcrumbItem>
-              <MDBBreadcrumbItem active>User Profile</MDBBreadcrumbItem>
-            </MDBBreadcrumb>
-        //   </MDBCol> */}
-        {/* // </MDBRow> */} 
-
-        <MDBRow>
+       <MDBRow>
           <MDBCol lg="4">
             <MDBCard className="mb-4">
               <MDBCardBody className="text-center">
