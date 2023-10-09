@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import { useLocation } from "react-router-dom";
 import Teacher from "../../Teacherdata";
-import TeacherCom from "./Teacher";
-import Student from "./Student";
-
-
+import TeacherCom from "../../Components/UserProfile/Teacher";
+import Student from "../../Components/UserProfile/Student";
 export default function UserProfile() {
 
   const [teacherData, setTeacherData] = useState([]);

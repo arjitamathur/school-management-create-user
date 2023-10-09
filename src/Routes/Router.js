@@ -37,6 +37,7 @@ function PrincipleRouter(props) {
         <Route path="/class" element={<Navigate to="/class/list" />} />
         <Route path="/class/list" element={<Dashboard />} />
         <Route path="/class/add" element={<AddClass />} />
+        <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/class/edit/:id" element={<EditClass />} />
 
         <Route path="/subjects" element={<Subjects />} />
