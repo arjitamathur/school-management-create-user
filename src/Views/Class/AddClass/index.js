@@ -22,11 +22,13 @@ function AddClass() {
   const navigate = useNavigate();
 
 
-  const checkIfClassExists = (name) => {
-    const existingClasses = getAllClass();
-    return existingClasses.some(
+  const checkIfClassExists = async (name) => {
+    const response =await getAllClass();
+    const existingClasses = response.data ;
+    return existingClasses.find(
       (cls) => cls.name.toLowerCase() === name.toLowerCase()
     );
+    
   };
 
   const SpaceBlock = (e) => {
@@ -60,14 +62,15 @@ function AddClass() {
     onSubmit: async (values, { setFieldError }) => {
       const { name } = values;
 
-      const isClassAlreadyExists = checkIfClassExists(name);
+      const isClassAlreadyExists = await checkIfClassExists(name);
+      console.log("class",isClassAlreadyExists)
 
       if (isClassAlreadyExists) {
         setFieldError("name", "This class already exists.");
       } else if (name < 1 || name > 12) {
         setFieldError("name", "Please choose class between 1 and 12 only");
       } else {
-        addClass(values);
+        await addClass(values);
         navigate("/class");
       }
     },

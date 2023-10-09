@@ -25,9 +25,9 @@ function Dashboard() {
     getClasses();
   }, []);
 
-  const getClasses = () => {
-    const response = getAllClass();
-    setClass(response);
+  const getClasses = async () => {
+    const response = await getAllClass();
+    setClass(response.data);
   };
 
   const onAddClass = () => {

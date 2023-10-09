@@ -40,14 +40,14 @@ function AddUserRole() {
     getSubjects();
   }, []);
 
-  const getClasses = () => {
-    const response = getAllClass();
-    setClass(response);
+  const getClasses = async () => {
+    const response = await getAllClass();
+    setClass(response.data);
   };
 
-  const getSubjects = () => {
-    const response = getAllSubject();
-    setSubject(response);
+  const getSubjects = async () => {
+    const response = await getAllSubject();
+    setSubject(response.data);
   };
 
  const handaleFormSubmit = async (e) => {
@@ -61,7 +61,7 @@ function AddUserRole() {
      roleValue = UserRoles.STUDENT;
    } 
 
-   addUserRole({ ...e, role: roleValue });
+   await addUserRole({ ...e, role: roleValue });
    navigate("/userrole");
     };
     

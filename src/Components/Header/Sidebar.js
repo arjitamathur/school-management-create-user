@@ -71,7 +71,7 @@ function Sidebar() {
                   Subjects
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="/students"
                   className={activeLink === "/students" ? "active" : ""}
@@ -86,7 +86,7 @@ function Sidebar() {
                 >
                   Teachers
                 </a>
-              </li>
+              </li> */}
             </>
           ) : userProfile.role === UserRoles.TEACHER ? (
             <>
@@ -115,7 +115,7 @@ function Sidebar() {
                 </a>
               </li>
             </>
-          ) : (
+          ) :    (
             <>{/* Show nothing for student from sidebar menu */}</>
           )}
         </ul>

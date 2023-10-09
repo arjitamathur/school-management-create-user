@@ -1,23 +1,21 @@
-import {LocalStorageFormHandler} from '../Database';
+import axios from 'axios';
+const baseUrl = "http://127.0.0.1:3003";
 
-const db = new LocalStorageFormHandler('subjects');
-
-export const getAllSubject = (id) => {
-    if(id){
-        return db.getData(id);
-    }
-    return db.getAllData();
+export const getAllSubject = async (id) => {
+    id = id || '';
+    return await axios.get(`${baseUrl}/subjects/${id}`);
 }
 
-export const addSubject = (data) => {
-    return db.saveData(data)
+export const addSubject = async (user) => {
+    const url = `${baseUrl}/subjects`;
+    return await axios.post(url,user);
 }
 
-export const editSubject = (id, data) => {
-    return  db.editData(id, data)
+export const editSubject = async (id, user) => {
+    return await axios.put(`${baseUrl}/subjects/${id}`,user);
 }
 
 
-export const deleteSubject = (id) => {
-    return db.deleteData(id)
+export const deleteSubject = async (id) => {
+    return await axios.delete(`${baseUrl}/subjects/${id}`);
 }

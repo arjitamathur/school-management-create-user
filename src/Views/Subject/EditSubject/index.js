@@ -32,20 +32,20 @@ function EditSubject() {
     getClasses();
   }, [])
 
-  const getSubjectDetail = () => {
-    const response = getAllSubject(id);
-    setSubjectDetail(response);
+  const getSubjectDetail = async () => {
+    const response = await getAllSubject(id);
+    setSubjectDetail(response.data);
   }
 
-  const getClasses = () => {
-    const response = getAllClass();
-    setClass(response);
+  const getClasses = async () => {
+    const response = await getAllClass();
+    setClass(response.data);
   }
 
 
   const handaleFormSubmit = async (e) => { //no multiple subjects , save individual subjects
 
-    editSubject(id, e)
+   await  editSubject(id, e)
     navigate('/subjects');
 
   }

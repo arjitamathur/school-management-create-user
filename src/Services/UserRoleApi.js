@@ -1,22 +1,39 @@
-import { LocalStorageFormHandler } from "../Database";
+import axios from 'axios';
+import {getAuthenticatedUser  } from "./Auth"
+import { toast } from 'react-toastify';
 
-export const db = new LocalStorageFormHandler("UserRoles");
+const baseUrl = "http://127.0.0.1:3003";
 
-export const getAllUserRole = (id) => {
-  if (id) {
-    return db.getData(id);
-  }
-  return db.getAllData();
-};
 
-export const addUserRole = (data) => {
-  return db.saveData(data);
-};
+export const getAllUserRole = async (id) => {
+    id = id || '';
+   
+    return await axios.get(`${baseUrl}/users/${id}`);
+}
 
-export const editUserRole = (id, data) => {
-  return db.editData(id, data);
-};
+export const addUserRole = async (user) => {
+    const url = `${baseUrl}/users`;
+    return await axios.post(url,user);
+}
 
-export const deleteUserRole = (id) => {
-  return db.deleteData(id);
-};
+export const editUserRole = async (id, user) => {
+   const authenticatedUser= getAuthenticatedUser();
+   if(authenticatedUser.id===id){
+return new Promise(null) ;
+   }
+   return await axios.put(`${baseUrl}/users/${id}`,user);
+
+}
+
+
+export const deleteUserRole = async (id) => {
+    const authenticatedUser= getAuthenticatedUser();
+    if(authenticatedUser.id===id){
+        return new Promise(r =>
+            toast.error('Cannot Delete logged in user')
+          )
+     } return await axios.delete(`${baseUrl}/users/${id}`);
+
+   
+}
+

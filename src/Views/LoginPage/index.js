@@ -6,10 +6,9 @@ import Button from 'react-bootstrap/Button';
 import SignImg from '../../Components/Image/SignImg';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import { NavLink } from 'react-router-dom';
-import { getAuthUser, checkPassword, UserRoles } from '../../Services/Auth';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Teacher from '../../Teacherdata';
+import { NavLink } from 'react-router-dom'
+import { getUser, checkPassword, UserRoles } from "../../Services/Auth";
+import InputGroup from "react-bootstrap/InputGroup";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -53,30 +52,31 @@ const Login = () => {
     }));
   };
 
-  const addData = (e) => {
-    e.preventDefault();
+    const addData =  async (e) => {
+        e.preventDefault();
 
-    const { email, password } = inpval;
-    if (email === '') {
-      toast.error('Email field is required', {
-        position: 'top-center',
-      });
-    } else if (!email.includes('@')) {
-      toast.error('Please enter a valid email address', {
-        position: 'top-center',
-      });
-    } else if (password === '') {
-      toast.error('Password field is required', {
-        position: 'top-center',
-      });
-    } else if (password.length < 5) {
-      toast.error('Password length should be greater than five', {
-        position: 'top-center',
-      });
-    } else {
-      const userdata = getAuthUser(email);
-      if (userdata) {
-        // Verify the user password
+        const { email, password } = inpval;
+        if (email === "") {
+            toast.error('email field is required', {
+                position: "top-center",
+            });
+        } else if (!email.includes("@")) {
+            toast.error('plz enter valid email address', {
+                position: "top-center",
+            });
+        } else if (password === "") {
+            toast.error('password field is required', {
+                position: "top-center",
+            });
+        } else if (password.length < 5) {
+            toast.error('password length should be greater than five', {
+                position: "top-center",
+            });
+        } else {
+            const userdata = await getUser (email)
+            console.log("userdata",userdata)
+            if (userdata) {
+                // Verify the user password
 
         if (checkPassword(password, userdata.password)) {
           sessionStorage.setItem('authUser', JSON.stringify(userdata));
@@ -95,14 +95,20 @@ const Login = () => {
     }
   };
 
-  const redirectUser = (userData) => {
-    // Handle redirection based on user role
-    if (userData.role === UserRoles.STUDENT) {
-      navigate('/userrole');
-    } else {
-      navigate('/userrole');
     }
-  };
+
+    const redirectUser = (userData) =>{
+      setTimeout(()=> {
+        if( userData.role === UserRoles.STUDENT){
+          navigate("/userrole")
+      }else{
+          navigate("/userrole");
+      }
+      } , 1000)
+        // Handle redirection based on user role
+       
+    }
+    
 
   return (
     <>

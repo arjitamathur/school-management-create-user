@@ -29,14 +29,15 @@ function UserRole() {
     getClasses();
   }, []);
 
-  const getUserRoles = () => {
-    const response = getAllUserRole();
-    console.log(response);
-    setUserRole(response);
-  };
+  const getUserRoles = async () => {
+    const response = await getAllUserRole();
+    setUserRole(response.data);
+ };
 
-  const getClasses = () => {
-    const response = getAllClass();
+ 
+
+  const getClasses = async () => {
+    const response = await getAllClass();
     setClass(response);
   };
 
@@ -63,11 +64,11 @@ function UserRole() {
 
   const handleStatusChange = (e) => {
     setSelectedStatus(e.target.value);
-    };
-    
-    const handleRoleChange = (e) => {
-      setSelectedRole(e.target.value);
-    };
+  };
+
+  const handleRoleChange = (e) => {
+    setSelectedRole(e.target.value);
+  };
 
   const filteredUserRole = userRoleList.filter(
     (userRole) =>
@@ -75,7 +76,10 @@ function UserRole() {
       (selectedRole === "" || userRole.role === selectedRole) &&
       (selectedClass === "" || userRole.class === selectedClass) &&
       (selectedStatus === "" || userRole.status === selectedStatus)
+
+
   );
+
 
   const startIndex = (activePage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -114,7 +118,7 @@ function UserRole() {
           <Col sm={2}>
             <Form.Select value={selectedClass} onChange={handleClassChange}>
               <option value="">All Classes</option>
-              {classList.map((item) => (
+              {classList.length && classList.map((item) => (
                 <option value={item.name} key={item.id}>
                   {item.name}
                 </option>
@@ -146,7 +150,7 @@ function UserRole() {
                   <th>Name</th>
                   <th>Role</th>
                   <th>Email</th>
-                  
+
 
                   <th>Actions</th>
                 </tr>
@@ -158,7 +162,7 @@ function UserRole() {
                     <td>{data.name}</td>
                     <td>{data.role}</td>
                     <td>{data.email}</td>
-                    
+
 
                     <td>
                       <Button
