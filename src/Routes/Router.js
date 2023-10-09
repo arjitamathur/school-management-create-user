@@ -20,6 +20,7 @@ import { UserRoles, getAuthenticatedUser } from "../Services/Auth";
 import UserRole from "../Views/UserRole/UserRole";
 import AddUserRole from "../Views/UserRole/AddUserRole";
 import EditUserRole from "../Views/UserRole/EditUserRole";
+import UserProfile from "../Components/UserProfile/UserProfile";
 
 function PrincipleRouter(props) {
   return (
