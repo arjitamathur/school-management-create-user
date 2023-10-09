@@ -30,17 +30,17 @@ function EditClass() {
     getDetail();
   }, [id]);
 
-  const getDetail = () => {
+  const getDetail = async () => {
     if (id) {
-      const response = getAllClass(id);
+      const response =await getAllClass(id);
       setClassDetail(response);
     }
   };
 
 
 
-  const checkIfClassExists = (name) => {
-    const existingClasses = getAllClass();
+  const checkIfClassExists = async (name) => {
+    const existingClasses = await getAllClass();
     return existingClasses.some(
       (cls) => cls.name.toLowerCase() === name.toLowerCase()
     );
@@ -88,7 +88,7 @@ function EditClass() {
           "Please choose class between 1 and 12 only"
         );
       } else {
-        editClass(id, values);
+       await editClass(id, values);
         navigate("/");
       }
     },

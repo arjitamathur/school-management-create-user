@@ -5,7 +5,7 @@ import SignImg from '../../Components/Image/SignImg'
 import { useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import { NavLink } from 'react-router-dom'
-import { getAuthUser, checkPassword, UserRoles } from "../../Services/Auth";
+import { getUser, checkPassword, UserRoles } from "../../Services/Auth";
 import InputGroup from "react-bootstrap/InputGroup";
 
 const Login = () => {
@@ -34,7 +34,7 @@ const Login = () => {
        }));
      };
 
-    const addData = (e) => {
+    const addData =  async (e) => {
         e.preventDefault();
 
         const { email, password } = inpval;
@@ -55,7 +55,8 @@ const Login = () => {
                 position: "top-center",
             });
         } else {
-            const userdata = getAuthUser(email)
+            const userdata = await getUser (email)
+            console.log("userdata",userdata)
             if (userdata) {
                 // Verify the user password
 
@@ -78,12 +79,15 @@ const Login = () => {
     }
 
     const redirectUser = (userData) =>{
-        // Handle redirection based on user role
+      setTimeout(()=> {
         if( userData.role === UserRoles.STUDENT){
-            navigate("/userrole")
-        }else{
-            navigate("/userrole");
-        }
+          navigate("/userrole")
+      }else{
+          navigate("/userrole");
+      }
+      } , 1000)
+        // Handle redirection based on user role
+       
     }
     
 

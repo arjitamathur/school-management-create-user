@@ -21,6 +21,31 @@ function AddSubject() {
     class: yup.string().required(),
   });
 
+  const handleFormSubmit = async (values) => {
+    const subjects = [];
+    maxSubjectField.forEach((item) => {
+      if (item <= subjectField) {
+        subjects.push(values[`subject_${item}`]);
+      }
+    });
+
+    console.log(values);
+
+    maxSubjectField.forEach(async (item) =>  {
+      if (item <= subjectField) {
+        const data = {
+          class: values.class,
+          subject: values[`subject_${item}`],
+        };
+        await addSubject(data);
+      }
+    });
+
+    navigate("/subjects");
+  }
+
+
+
   const formik = useFormik({
     initialValues: {
       class: "",
@@ -52,28 +77,7 @@ function AddSubject() {
     return errors;
   }
 
-  function handleFormSubmit(values) {
-    const subjects = [];
-    maxSubjectField.forEach((item) => {
-      if (item <= subjectField) {
-        subjects.push(values[`subject_${item}`]);
-      }
-    });
-
-    console.log(values);
-
-    maxSubjectField.forEach((item) => {
-      if (item <= subjectField) {
-        const data = {
-          class: values.class,
-          subject: values[`subject_${item}`],
-        };
-        addSubject(data);
-      }
-    });
-
-    navigate("/subjects");
-  }
+ 
 
   const [classList, setClass] = useState([]);
   useEffect(() => {
@@ -82,7 +86,7 @@ function AddSubject() {
 
   const getClasses = async () => {
     const response = await getAllClass();
-    setClass(response);
+    setClass(response.data);
   };
 
   const handleAddSubjectInput = () => {

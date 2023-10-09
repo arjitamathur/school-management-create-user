@@ -1,7 +1,18 @@
 import {LocalStorageFormHandler} from '../Database';
-import { db as studentDb} from "./StudentApi";
-import { db as teacherDb } from "./TeacherApi";
-import { db as userRoleDb } from "./UserRoleApi";
+
+
+import axios from 'axios';
+const baseUrl = "http://127.0.0.1:3003";
+
+export const getUser = async (email) => {
+    console.log(email);
+   const response = await axios.get(`${baseUrl}/users?email=${email}`); //return list of users
+   const users=response.data;
+   if(users.length>0){
+    return users[0]
+   } return  null;
+}
+
 
 const db = new LocalStorageFormHandler('principleusers');
 // Define roles
@@ -15,18 +26,7 @@ export const UserRoles = Object.freeze({
   STUDENT: STUDENT
 });
 
-export const addAdminUser = (data) => {
-    return db.saveData(data)
-}
 
-export const getAuthUser = (email) => {
-    return (
-      db.getProfileData(email) ||
-      teacherDb.getProfileData(email) ||
-      studentDb.getProfileData(email) ||
-      userRoleDb.getProfileData(email)
-    );
-}
 
 export const checkPassword = (plainPassword, encryptedPassword)=>{
     // Check password if valid

@@ -27,14 +27,14 @@ function Subjects() {
     getClasses();
   }, []);
 
-  const getSubjects = () => {
-    const response = getAllSubject();
-    setSubject(response);
+  const getSubjects = async () => {
+    const response = await getAllSubject();
+    setSubject(response.data);
   };
 
-  const getClasses = () => {
-    const response = getAllClass();
-    setClass(response);
+  const getClasses = async() => {
+    const response =  await getAllClass();
+    setClass(response.data);
   };
 
   const deleteData = (id) => {
@@ -59,8 +59,8 @@ function Subjects() {
   };
 
 
-
-  const filteredSubjects = subjectList.filter(
+console.log("list" , subjectList)
+  const filteredSubjects =  subjectList.filter(
     (subject) => {
       if (searchTerm !== null || searchTerm !== undefined) {
         return subject.subject.toLowerCase().includes(searchTerm.toLowerCase()) &&
