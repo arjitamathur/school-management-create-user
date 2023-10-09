@@ -18,7 +18,7 @@ import { UserRoles, getAuthenticatedUser } from "../Services/Auth";
 import UserRole from "../Views/UserRole/UserRole";
 import AddUserRole from "../Views/UserRole/AddUserRole";
 import EditUserRole from "../Views/UserRole/EditUserRole";
-import UserProfile from "../Components/UserProfile/UserProfile";
+import UserProfile from "../Components/UserProfile/Student";
 
 function PrincipleRouter(props) {
   return (
@@ -55,6 +55,7 @@ function TeacherRouter(props) {
       <ToastContainer autoClose={3000} hideProgressBar />
       <Routes>
         <Route path="/" element={<UserDashboard />} />
+        <Route path="/profile" element={<UserDashboard />} />
 
         <Route path="/login" element={<Login />} />
         
@@ -79,7 +80,8 @@ function StudentRouter(props) {
     <div>
       <ToastContainer autoClose={3000} hideProgressBar />
       <Routes>
-        <Route path="/" element={<UserDashboard />} />
+        <Route path="/profile" element={<UserDashboard />} />
+
         <Route path="/login" element={<Login />} />
         
       </Routes>

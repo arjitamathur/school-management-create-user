@@ -80,8 +80,8 @@ const Login = () => {
 
     const redirectUser = (userData) =>{
       setTimeout(()=> {
-        if( userData.role === UserRoles.STUDENT){
-          navigate("/userrole")
+        if( userData.role === UserRoles.STUDENT ||  userData.role === UserRoles.TEACHER ){
+          navigate("/profile")
       }else{
           navigate("/userrole");
       }
@@ -141,12 +141,7 @@ const Login = () => {
                   Login
                 </Button>
               </Form>
-              <p className="mt-3">
-                Don't Have an Account{" "}
-                <span>
-                  <NavLink to="/register">SignUp</NavLink>
-                </span>{" "}
-              </p>
+          
             </div>
             <SignImg />
           </section>
