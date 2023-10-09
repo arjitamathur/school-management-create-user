@@ -66,6 +66,19 @@
       "password": "1234567",
       "role": "student",
       "id": 3
+    },
+    {
+      "name": "shweta",
+      "mobile": "",
+      "class": "1",
+      "subjects": [
+        "science"
+      ],
+      "status": "inactive",
+      "email": "teacher@gmail.com",
+      "password": "1234567",
+      "role": "teacher",
+      "id": 4
     }
   ]
 }
