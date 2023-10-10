@@ -18,3 +18,4 @@
  - fix validation of user module [fix/validation]
  - fix validation of password [fix/usersdata]
  - validation of userrole-edituser [editusers]
+ - fixed navlinks [fix/navbar]

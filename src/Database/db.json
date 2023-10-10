@@ -14,6 +14,21 @@
       "name": "7",
       "status": "active",
       "id": 3
+    },
+    {
+      "name": "5",
+      "status": "active",
+      "id": 4
+    },
+    {
+      "name": "3",
+      "status": "active",
+      "id": 5
+    },
+    {
+      "name": "11",
+      "status": "inactive",
+      "id": 6
     }
   ],
   "subjects": [
@@ -72,6 +87,19 @@
       "password": "1234567",
       "role": "student",
       "id": 3
+    },
+    {
+      "name": "sneha",
+      "mobile": "",
+      "class": "2",
+      "subjects": [
+        "science"
+      ],
+      "status": "inactive",
+      "email": "sneha@gmail.com",
+      "password": "11144",
+      "role": "teacher",
+      "id": 4
     }
   ]
 }
