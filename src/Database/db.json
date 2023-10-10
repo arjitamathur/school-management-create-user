@@ -9,27 +9,32 @@
       "name": "2",
       "status": "active",
       "id": 2
+    },
+    {
+      "name": "7",
+      "status": "active",
+      "id": 3
     }
   ],
   "subjects": [
     {
-      "class": "1",
+      "class": "2",
       "subject": "science",
       "id": 1
     },
     {
       "class": "1",
-      "subject": "hindi",
+      "subject": "maths",
       "id": 2
     },
     {
       "class": "2",
-      "subject": "maths",
+      "subject": "hindi",
       "id": 3
     },
     {
       "class": "2",
-      "subject": "science",
+      "subject": "maths",
       "id": 4
     },
     {
@@ -51,42 +56,32 @@
       "password": "1234567"
     },
     {
-      "name": "shweta",
+      "id": 2,
+      "name": "maam",
       "mobile": "",
       "class": "1",
       "subjects": [
-        "science"
+        "hindi"
       ],
       "status": "inactive",
       "email": "teacher@gmail.com",
       "password": "1234567",
-      "role": "teacher",
-      "id": 4
+      "role": "teacher"
     },
     {
-      "name": "cvxv11111",
-      "class": "1",
-      "subjects": [
-        "science"
-      ],
-      "status": "active",
-      "email": "dd",
-      "password": "",
-      "role": "teacher",
-      "id": 5
-    },
-    {
-      "name": "n mmmb ",
+      "id": 3,
+      "name": "Student",
       "mobile": "",
       "class": "1",
       "subjects": [
-        "science"
+        "science",
+        "maths"
       ],
-      "status": "inactive",
-      "email": "kck@gmail.com",
-      "password": "gtyi",
-      "role": "teacher",
-      "id": 6
+      "status": "active",
+      "email": "student@yama.com",
+      "password": "1234567",
+      "role": "student",
+      "id": 3
     },
     {
       "name": "shweta",
@@ -98,8 +93,37 @@
       "status": "active",
       "email": "abc@gmail.com",
       "password": "11111",
+      "status": "active",
+      "email": "shweta@yahoo.com",
+      "password": "1234567",
       "role": "teacher",
       "id": 7
+    },
+    {
+      "name": "nina",
+      "mobile": "",
+      "class": "1",
+      "subjects": [
+        "science"
+      ],
+      "status": "active",
+      "email": "nina@yama.com",
+      "password": "1234567",
+      "role": "teacher",
+      "id": 5
+    },
+    {
+      "name": "madam",
+      "mobile": "",
+      "class": "1",
+      "subjects": [
+        "science"
+      ],
+      "status": "active",
+      "email": "madam@yama.com",
+      "password": "1234567",
+      "role": "teacher",
+      "id": 6
     }
   ]
 }

@@ -58,14 +58,14 @@ function AddSubject() {
 
   function validate(values) {
     const errors = {};
-
+  
     // Check for duplicate subjects
     const subjectArray = maxSubjectField
       .filter((item) => item <= subjectField)
       .map((item) => values[`subject_${item}`]);
-
+  
     const isDuplicate = new Set(subjectArray).size !== subjectArray.length;
-
+  
     if (isDuplicate) {
       maxSubjectField.forEach((item) => {
         if (item <= subjectField) {
@@ -73,9 +73,24 @@ function AddSubject() {
         }
       });
     }
-
+  
+    // Check for spaces-only subject names
+    maxSubjectField.forEach((item) => {
+      if (item <= subjectField) {
+        const subjectValue = values[`subject_${item}`] || "";
+        if (/^\s+$/.test(subjectValue)) {
+          errors[`subject_${item}`] = "Subject name cannot be spaces only";
+        }
+        
+        if (/[!@#$%^&*(),.?":{}|<>]/.test(subjectValue)) {
+          errors[`subject_${item}`] = "Special characters are not allowed in subject name";
+        }
+      }
+    });
+  
     return errors;
   }
+  
 
  
 

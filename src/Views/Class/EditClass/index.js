@@ -23,8 +23,8 @@ function EditClass() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const [classDetail, setClassDetail] = useState(null);
-  const [error, setError] = useState("");
+  const [classDetail, setClassDetail] = useState();
+
 
   useEffect(() => {
     getDetail();
@@ -32,16 +32,21 @@ function EditClass() {
 
   const getDetail = async () => {
     if (id) {
-      const response =await getAllClass(id);
-      setClassDetail(response);
+      const response = await getAllClass(id);
+      setClassDetail(response.data);
+
+      // Set initial form values here
+      formik.setValues({
+        name: response.data.name.toString(),
+        status: response.data.status,
+      });
     }
   };
 
 
-
   const checkIfClassExists = async (name) => {
     const existingClasses = await getAllClass();
-    return existingClasses.some(
+    return existingClasses.data.find(
       (cls) => cls.name.toLowerCase() === name.toLowerCase()
     );
   };
@@ -55,9 +60,9 @@ function EditClass() {
 
 
   const formik = useFormik({
-    initialValues: classDetail || {
-      name: "",
-      status: ClassStatus.ACTIVE,
+    initialValues:  {
+      name:  "",  
+      status:  "", 
     },
     validationSchema: yup.object().shape({
       name: yup
@@ -78,9 +83,9 @@ function EditClass() {
     }),
     onSubmit: async (values) => {
       const { name } = values;
-      const isClassAlreadyExists = checkIfClassExists(name);
+      const existingClass = await checkIfClassExists(name);
 
-      if (isClassAlreadyExists) {
+      if (existingClass) {
         formik.setFieldError("name", "This class already exists.");
       } else if (name < 1 || name > 12) {
         formik.setFieldError(
@@ -89,7 +94,7 @@ function EditClass() {
         );
       } else {
        await editClass(id, values);
-        navigate("/");
+        navigate("/class/list");
       }
     },
   });

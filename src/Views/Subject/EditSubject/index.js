@@ -19,6 +19,7 @@ function EditSubject() {
   const { id } = useParams();
   console.log('----', id)
   const navigate = useNavigate();
+
   const [subjectDetail, setSubjectDetail] = useState(null);
 
   const schema = yup.object().shape({
@@ -43,7 +44,7 @@ function EditSubject() {
   }
 
 
-  const handaleFormSubmit = async (e) => { //no multiple subjects , save individual subjects
+  const handaleFormSubmit = async (e) => { 
 
    await  editSubject(id, e)
     navigate('/subjects');

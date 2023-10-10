@@ -70,7 +70,7 @@ function UserDashboard() {
       </MDBContainer>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Student Details</Modal.Title>
+          <Modal.Title>Your Details</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <MDBCardTitle>Name : {userProfile.name}</MDBCardTitle>

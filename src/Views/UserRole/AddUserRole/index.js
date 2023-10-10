@@ -36,6 +36,8 @@ function AddUserRole() {
 
   const [classList, setClass] = useState([]);
   const [subjectList, setSubject] = useState([]);
+  const [showPassword, setShowPassword] = useState(false);
+
 
   useEffect(() => {
     getClasses();
@@ -54,23 +56,23 @@ function AddUserRole() {
     setSubject(response.data);
   };
 
-  const handaleFormSubmit = async (e) => {
-    const selectedRole = e.role;
+ const handaleFormSubmit = async (e) => {
+   const selectedRole = e.role; 
 
-    let roleValue;
+   let roleValue;
 
-    if (selectedRole === TEACHER) {
-      roleValue = UserRoles.TEACHER;
-    } else if (selectedRole === STUDENT) {
-      roleValue = UserRoles.STUDENT;
-    }
+   if (selectedRole === TEACHER) {
+     roleValue = UserRoles.TEACHER;
+   } else if (selectedRole === STUDENT) {
+     roleValue = UserRoles.STUDENT;
+   } 
 
-    await addUserRole({ ...e, role: roleValue });
-    navigate("/userrole");
-  };
-
-
-
+   await addUserRole({ ...e, role: roleValue });
+   navigate("/userrole");
+    };
+    
+    
+    
 
   const validateSubjects = (values) => {
     const selectedSubjects = values.subjects;
@@ -215,15 +217,30 @@ function AddUserRole() {
 
                     <Form.Group as={Col} md="4" className="position-relative">
                       <Form.Label> Password</Form.Label>
-                      <Form.Control
-                        type="password"
-                        name="password"
-                        onKeyDown={SpaceBlock}
-                        value={values.password}
-                        onChange={handleChange}
-                        isValid={touched.password && !errors.password}
-                      />
+                      <InputGroup>
+                        <Form.Control
+                          type={showPassword ? "text" : "password"}
+                          name="password"
+                          onKeyDown={SpaceBlock}
+                          value={values.password}
+                          onChange={handleChange}
+                          isValid={touched.password && !errors.password}
+                        />
+                        <Button
+                          variant="outline-secondary"
+                          onClick={() => setShowPassword(!showPassword)}
+                        >
+                          {showPassword ? "Hide" : "Show"}
+                        </Button>
+                      </InputGroup>
+                      {touched.password && errors.password && (
+                        <Form.Control.Feedback type="invalid">
+                          {errors.password}
+                        </Form.Control.Feedback>
+                      )}
                     </Form.Group>
+
+                    
                   </Row>
 
                   <Row className="my-3">
@@ -245,10 +262,10 @@ function AddUserRole() {
                         <option>Select class</option>
                         {classList
                           ? classList.map((item) => (
-                            <option value={item.name} key={item.id}>
-                              {item.name}
-                            </option>
-                          ))
+                              <option value={item.name} key={item.id}>
+                                {item.name}
+                              </option>
+                            ))
                           : ""}
                       </Form.Select>
                     </Form.Group>
@@ -265,19 +282,19 @@ function AddUserRole() {
                         <br></br>
                         {subjectList
                           ? subjectList
-                            .filter((item) => item.class === values.class)
-                            .map((item) => (
-                              <Form.Check
-                                inline
-                                label={item.subject}
-                                name="subjects"
-                                type="checkbox"
-                                id={`inline-${item.id}-1`}
-                                key={item.id}
-                                onChange={handleChange}
-                                value={item.subject}
-                              />
-                            ))
+                              .filter((item) => item.class === values.class)
+                              .map((item) => (
+                                <Form.Check
+                                  inline
+                                  label={item.subject}
+                                  name="subjects"
+                                  type="checkbox"
+                                  id={`inline-${item.id}-1`}
+                                  key={item.id}
+                                  onChange={handleChange}
+                                  value={item.subject}
+                                />
+                              ))
                           : ""}
                       </Form.Group>
                     ) : (
@@ -300,4 +317,5 @@ function AddUserRole() {
   );
 }
 
+export default AddUserRole;
 export default AddUserRole;
