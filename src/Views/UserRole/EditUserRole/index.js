@@ -24,19 +24,19 @@ export const UserRoleStatus = Object.freeze({
   ACTIVE: ACTIVE,
 });
 
-export const UserRole = Object.freeze({
-  TEACHER: TEACHER,
-  STUDENT: STUDENT,
-});
+       export const UserRole = Object.freeze({
+         TEACHER: TEACHER,
+         STUDENT: STUDENT,
+       });
 
-function EditUserRole() {
-  const { Formik } = formik;
-  const { id } = useParams();
-  const navigate = useNavigate();
+    function EditUserRole() {
+      const { Formik } = formik;
+      const { id } = useParams();
+      const navigate = useNavigate();
 
-  const [classList, setClass] = useState([]);
-  const [subjectList, setSubject] = useState([]);
-  const [userroleDetail, setUserRoleDetail] = useState(null);
+      const [classList, setClass] = useState([]);
+      const [subjectList, setSubject] = useState([]);
+      const [userroleDetail, setUserRoleDetail] = useState(null);
 
   useEffect(() => {
     getUserRoleDetail();
