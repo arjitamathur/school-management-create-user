@@ -17,14 +17,11 @@ const Login = () => {
 
   const getdata = (e) => {
     const { value, name } = e.target;
-    setInpval(() => {
-      return {
-        ...inpval,
-        [name]: value
-      }
-    })
-
-  }
+    setInpval(() => ({
+      ...inpval,
+      [name]: value.trim(), // Trim spaces before and after the email
+    }));
+  };
 
   const togglePasswordVisibility = () => {
     setInpval((prevState) => ({
@@ -37,14 +34,22 @@ const Login = () => {
     e.preventDefault();
     const { email, password } = inpval;
 
-        // Check for spaces before or after the email address
-        if (email.trim() !== email) {
-          toast.error('Please enter a valid email address', {
-            position: "top-center",
-          });
-          return;
-        }
+        // // Check for spaces before or after the email address
+        // if (email.trim() !== email) {
+        //   toast.error('Please enter a valid email address', {
+        //     position: "top-center",
+        //   });
+        //   return;
+        // }
     
+        
+    // Check for spaces before or after the email address
+    if (email.indexOf(" ") !== -1) {
+      toast.error('Please enter a valid email address', {
+        position: "top-center",
+      });
+      return;
+    }
     
     if (email.length > 30) {
       toast.error('Email address should not exceed 30 characters', {

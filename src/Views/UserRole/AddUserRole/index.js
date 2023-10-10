@@ -12,7 +12,6 @@ import { getAllSubject } from "../../../Services/SubjectApi";
 import { addUserRole } from "../../../Services/UserRoleApi";
 import Topbar from "../../../Components/Header/topbar";
 import { UserRoles } from "../../../Services/Auth";
-import InputGroup from "react-bootstrap/InputGroup";
 
 const INACTIVE = "inactive";
 const ACTIVE = "active";
@@ -32,6 +31,8 @@ export const UserRole = Object.freeze({
 function AddUserRole() {
   const { Formik } = formik;
   const navigate = useNavigate();
+  const [touchedFields, setTouchedFields] = useState({});
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const [classList, setClass] = useState([]);
   const [subjectList, setSubject] = useState([]);
@@ -40,35 +41,12 @@ function AddUserRole() {
     getClasses();
     getSubjects();
   }, []);
-  const [inpval, setInpval] = useState({
-    email: "",
-    password: "",
-    showPassword: false,
-  });
 
 
 
   const getClasses = async () => {
     const response = await getAllClass();
     setClass(response.data);
-  };
-
-
-  const getdata = (e) => {
-    const { value, name } = e.target;
-    setInpval(() => {
-      return {
-        ...inpval,
-        [name]: value
-      }
-    })
-
-  }
-  const togglePasswordVisibility = () => {
-    setInpval((prevState) => ({
-      ...prevState,
-      showPassword: !prevState.showPassword,
-    }));
   };
 
   const getSubjects = async () => {
@@ -112,17 +90,23 @@ function AddUserRole() {
   };
 
   const schema = yup.object().shape({
-    name: yup.string().required(),
-
+    name: yup.string().required("Name is required")
+      .matches(/^[A-Za-z]+$/, "Name must contain only alphabets")
+      .max(30, "Name must not exceed 30 characters"),
     class: yup.string().required(),
     status: yup.string().required(),
     subjects: yup
       .array()
       .required()
       .min(1, "Please select at least one subject"),
-    email: yup.string().required(),
+    email: yup.string()
+      .required("Email is required")
+      .email("Invalid email format")
+      .matches(/@/, "Email must include @ symbol")
+      .max(30, "Email must not exceed 30 characters"),
     password: yup.string().required(),
   });
+
 
   return (
     <div>
@@ -144,7 +128,7 @@ function AddUserRole() {
                 password: "",
               }}
             >
-              {({ handleSubmit, handleChange, values, touched, errors }) => (
+              {({ handleSubmit, handleChange, values, handleBlur, touched, errors }) => (
                 <Form noValidate onSubmit={handleSubmit}>
                   {getValues(values, touched, errors)}
                   <Row className="my-3">
@@ -156,14 +140,18 @@ function AddUserRole() {
                         onKeyDown={SpaceBlock}
                         value={values.name}
                         onChange={handleChange}
+                        onBlur={(e) => {
+                          handleBlur(e);
+                          setTouchedFields({ ...touchedFields, name: true });
+                        }}
                         isValid={touched.name && !errors.name}
                       />
-                      <Form.Control.Feedback type="invalid">
-                        {errors.name}
-                      </Form.Control.Feedback>
+                      {touchedFields.name && errors.name && (
+                        <div className="error-message">{errors.name}</div>
+                      )}
                     </Form.Group>
 
-
+                   
                     <Form.Group as={Col} className="position-relative">
                       <Form.Label> Status</Form.Label>
                       <Form.Select
@@ -203,7 +191,7 @@ function AddUserRole() {
                     </Form.Group>
                   </Row>
 
-                  <Row className="my-3">
+                  <Row className="my-3"> 
                     <Form.Group as={Col} md="4" className="position-relative">
                       <Form.Label> Email</Form.Label>
                       <Form.Control
@@ -212,31 +200,29 @@ function AddUserRole() {
                         onKeyDown={SpaceBlock}
                         value={values.email}
                         onChange={handleChange}
+                        onBlur={(e) => {
+                          handleBlur(e);
+                          setTouchedFields({ ...touchedFields, email: true });
+                        }}
                         isValid={touched.email && !errors.email}
                       />
-                      <Form.Control.Feedback type="invalid">
-                        {errors.email}
-                      </Form.Control.Feedback>
+
+        
+                      {touchedFields.email && errors.email && (
+                        <div className="error-message">{errors.email}</div>
+                      )}
                     </Form.Group>
-                    <Form.Group
-                      className="mb-3 col-lg-6"
-                      controlId="formBasicPassword"
-                    >
-                      <InputGroup>
-                        <Form.Control
-                          type={inpval.showPassword ? "text" : "password"}
-                          name="password"
-                          onChange={getdata}
-                          placeholder="Password"
-                        />
-                        <Button
-                          variant="outline-secondary"
-                          onClick={togglePasswordVisibility}
-                          className="password-toggle-btn"
-                        >
-                          {inpval.showPassword ? "Hide" : "Show"}
-                        </Button>
-                      </InputGroup>
+
+                    <Form.Group as={Col} md="4" className="position-relative">
+                      <Form.Label> Password</Form.Label>
+                      <Form.Control
+                        type="password"
+                        name="password"
+                        onKeyDown={SpaceBlock}
+                        value={values.password}
+                        onChange={handleChange}
+                        isValid={touched.password && !errors.password}
+                      />
                     </Form.Group>
                   </Row>
 
@@ -314,4 +300,4 @@ function AddUserRole() {
   );
 }
 
-export default AddUserRole
+export default AddUserRole;
