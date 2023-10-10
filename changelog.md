@@ -14,3 +14,5 @@
  - Create UI of student and teacher module. fixed issues in login page [teacher-module]
  - updated validation of loginpage and password .[updated-validation]
  - fix validation of user module [fix/validation]
+ - fix validation of password [fix/usersdata]
+ - validation of userrole-edituser [editusers]
