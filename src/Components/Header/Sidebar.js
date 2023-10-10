@@ -47,14 +47,7 @@ function Sidebar() {
         <ul className="no-bullets">
           {userProfile.role === UserRoles.ADMIN ? (
             <>
-              <li>
-                <a
-                  href="/userrole"
-                  className={activeLink === "/userrole" ? "active" : ""}
-                >
-                  Users
-                </a>
-              </li>
+             
               <li>
                 <a
                   href="/class"
@@ -71,22 +64,16 @@ function Sidebar() {
                   Subjects
                 </a>
               </li>
-              {/* <li>
-                <a
-                  href="/students"
-                  className={activeLink === "/students" ? "active" : ""}
-                >
-                  Students
-                </a>
-              </li>
               <li>
                 <a
-                  href="/teachers"
-                  className={activeLink === "/teachers" ? "active" : ""}
+                  href="/userrole"
+                  className={activeLink === "/userrole" ? "active" : ""}
                 >
-                  Teachers
+                  Users
                 </a>
-              </li> */}
+              </li>
+        
+          
             </>
           ) : userProfile.role === UserRoles.TEACHER ? (
             <>

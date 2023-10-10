@@ -115,7 +115,7 @@ function UserRole() {
             </Form.Select>
           </Col>
 
-          <Col sm={2}>
+          {/* <Col sm={2}>
             <Form.Select value={selectedClass} onChange={handleClassChange}>
               <option value="">All Classes</option>
               {classList.length && classList.map((item) => (
@@ -124,7 +124,7 @@ function UserRole() {
                 </option>
               ))}
             </Form.Select>
-          </Col>
+          </Col> */}
 
           <Col sm={2}>
             <Form.Select value={selectedStatus} onChange={handleStatusChange}>
