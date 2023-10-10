@@ -12,6 +12,7 @@ import { getAllSubject } from "../../../Services/SubjectApi";
 import { addUserRole } from "../../../Services/UserRoleApi";
 import Topbar from "../../../Components/Header/topbar";
 import { UserRoles } from "../../../Services/Auth";
+import InputGroup from "react-bootstrap/InputGroup";
 
 const INACTIVE = "inactive";
 const ACTIVE = "active";
@@ -106,7 +107,9 @@ function AddUserRole() {
       .email("Invalid email format")
       .matches(/@/, "Email must include @ symbol")
       .max(30, "Email must not exceed 30 characters"),
-    password: yup.string().required(),
+    password: yup.string().required()
+    .min(5, "Password must be at least 5 characters")
+    .max(10, "Password must not exceed 10 characters"),
   });
 
 
@@ -224,8 +227,13 @@ function AddUserRole() {
                           onKeyDown={SpaceBlock}
                           value={values.password}
                           onChange={handleChange}
+                          onBlur={(e) => {
+                            handleBlur(e);
+                            setTouchedFields({ ...touchedFields, password: true });
+                          }}
                           isValid={touched.password && !errors.password}
                         />
+                   
                         <Button
                           variant="outline-secondary"
                           onClick={() => setShowPassword(!showPassword)}
@@ -233,11 +241,11 @@ function AddUserRole() {
                           {showPassword ? "Hide" : "Show"}
                         </Button>
                       </InputGroup>
-                      {touched.password && errors.password && (
-                        <Form.Control.Feedback type="invalid">
-                          {errors.password}
-                        </Form.Control.Feedback>
-                      )}
+                      {/* {touched.password && errors.password && ( */}
+                              {touchedFields.password && errors.password && (
+                                <div className="error-message">{errors.password}</div>
+                              )}
+                      
                     </Form.Group>
 
                     
@@ -317,5 +325,4 @@ function AddUserRole() {
   );
 }
 
-export default AddUserRole;
 export default AddUserRole;
