@@ -55,7 +55,7 @@ function UserDashboard() {
                   <div className="flex-grow-1 ms-3">
                     <MDBCardTitle>Name : {userProfile.name}</MDBCardTitle>
                     <MDBCardTitle>Email : {userProfile.email}</MDBCardTitle>
-                    <MDBCardTitle>Class : {userProfile.class}</MDBCardTitle>
+                   
                     <div className="d-flex pt-1">
                       <Button variant="secondary" onClick={handleShow}>
                         View
@@ -75,6 +75,8 @@ function UserDashboard() {
         <Modal.Body>
           <MDBCardTitle>Name : {userProfile.name}</MDBCardTitle>
           <MDBCardTitle>Email : {userProfile.email}</MDBCardTitle>
+          <MDBCardTitle>Class : {userProfile.class}</MDBCardTitle>
+          <MDBCardTitle>Subjects : {userProfile.subjects}</MDBCardTitle>
         
         </Modal.Body>
       
