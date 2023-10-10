@@ -9,6 +9,12 @@
       "name": "2",
       "status": "active",
       "id": 2
+    },
+    {
+      "classDetail": null,
+      "name": "6",
+      "status": "active",
+      "id": 3
     }
   ],
   "subjects": [
@@ -42,17 +48,17 @@
       "password": "1234567"
     },
     {
+      "id": 2,
       "name": "maam",
       "mobile": "",
       "class": "1",
       "subjects": [
-        "science"
+        "hindi"
       ],
       "status": "active",
       "email": "maam2@gmail.com",
       "password": "1234567",
-      "role": "teacher",
-      "id": 2
+      "role": "teacher"
     },
     {
       "id": 3,
@@ -60,7 +66,7 @@
       "mobile": "",
       "class": "1",
       "subjects": [
-        "hindi"
+        "science"
       ],
       "status": "active",
       "email": "student@yama.com",
@@ -79,6 +85,32 @@
       "password": "1234567",
       "role": "teacher",
       "id": 4
+    },
+    {
+      "name": "nina",
+      "mobile": "",
+      "class": "1",
+      "subjects": [
+        "science"
+      ],
+      "status": "active",
+      "email": "nina@yama.com",
+      "password": "1234567",
+      "role": "teacher",
+      "id": 5
+    },
+    {
+      "name": "madam",
+      "mobile": "",
+      "class": "1",
+      "subjects": [
+        "science"
+      ],
+      "status": "active",
+      "email": "madam@yama.com",
+      "password": "1234567",
+      "role": "teacher",
+      "id": 6
     }
   ]
 }

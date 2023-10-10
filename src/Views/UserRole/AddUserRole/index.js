@@ -12,7 +12,6 @@ import { getAllSubject } from "../../../Services/SubjectApi";
 import { addUserRole } from "../../../Services/UserRoleApi";
 import Topbar from "../../../Components/Header/topbar";
 import { UserRoles } from "../../../Services/Auth";
-import InputGroup from "react-bootstrap/InputGroup";
 
 const INACTIVE = "inactive";
 const ACTIVE = "active";
@@ -40,35 +39,10 @@ function AddUserRole() {
     getClasses();
     getSubjects();
   }, []);
-  const [inpval, setInpval] = useState({
-    email: "",
-    password: "",
-    showPassword: false,
-  });
-
-
 
   const getClasses = async () => {
     const response = await getAllClass();
     setClass(response.data);
-  };
-
-
-  const getdata = (e) => {
-    const { value, name } = e.target;
-    setInpval(() => {
-      return {
-        ...inpval,
-        [name]: value
-      }
-    })
-
-  }
-  const togglePasswordVisibility = () => {
-    setInpval((prevState) => ({
-      ...prevState,
-      showPassword: !prevState.showPassword,
-    }));
   };
 
   const getSubjects = async () => {
@@ -76,22 +50,22 @@ function AddUserRole() {
     setSubject(response.data);
   };
 
-  const handaleFormSubmit = async (e) => {
-    const selectedRole = e.role;
+ const handaleFormSubmit = async (e) => {
+   const selectedRole = e.role; 
 
-    let roleValue;
+   let roleValue;
 
-    if (selectedRole === TEACHER) {
-      roleValue = UserRoles.TEACHER;
-    } else if (selectedRole === STUDENT) {
-      roleValue = UserRoles.STUDENT;
-    }
+   if (selectedRole === TEACHER) {
+     roleValue = UserRoles.TEACHER;
+   } else if (selectedRole === STUDENT) {
+     roleValue = UserRoles.STUDENT;
+   } 
 
-    await addUserRole({ ...e, role: roleValue });
-    navigate("/userrole");
-  };
-
-
+   await addUserRole({ ...e, role: roleValue });
+   navigate("/userrole");
+    };
+    
+    
 
 
   const validateSubjects = (values) => {
@@ -113,7 +87,7 @@ function AddUserRole() {
 
   const schema = yup.object().shape({
     name: yup.string().required(),
-
+   
     class: yup.string().required(),
     status: yup.string().required(),
     subjects: yup
@@ -163,6 +137,20 @@ function AddUserRole() {
                       </Form.Control.Feedback>
                     </Form.Group>
 
+                    {/* <Form.Group as={Col} md="4" className="position-relative">
+                      <Form.Label> Mobile</Form.Label>
+                      <Form.Control
+                        type="text"
+                        name="mobile"
+                        onKeyDown={SpaceBlock}
+                        value={values.mobile}
+                        onChange={handleChange}
+                        isValid={touched.mobile && !errors.mobile}
+                      />
+                      <Form.Control.Feedback type="invalid">
+                        {errors.mobile}
+                      </Form.Control.Feedback>
+                    </Form.Group> */}
 
                     <Form.Group as={Col} className="position-relative">
                       <Form.Label> Status</Form.Label>
@@ -218,25 +206,17 @@ function AddUserRole() {
                         {errors.email}
                       </Form.Control.Feedback>
                     </Form.Group>
-                    <Form.Group
-                      className="mb-3 col-lg-6"
-                      controlId="formBasicPassword"
-                    >
-                      <InputGroup>
-                        <Form.Control
-                          type={inpval.showPassword ? "text" : "password"}
-                          name="password"
-                          onChange={getdata}
-                          placeholder="Password"
-                        />
-                        <Button
-                          variant="outline-secondary"
-                          onClick={togglePasswordVisibility}
-                          className="password-toggle-btn"
-                        >
-                          {inpval.showPassword ? "Hide" : "Show"}
-                        </Button>
-                      </InputGroup>
+
+                    <Form.Group as={Col} md="4" className="position-relative">
+                      <Form.Label> Password</Form.Label>
+                      <Form.Control
+                        type="password"
+                        name="password"
+                        onKeyDown={SpaceBlock}
+                        value={values.password}
+                        onChange={handleChange}
+                        isValid={touched.password && !errors.password}
+                      />
                     </Form.Group>
                   </Row>
 
@@ -259,10 +239,10 @@ function AddUserRole() {
                         <option>Select class</option>
                         {classList
                           ? classList.map((item) => (
-                            <option value={item.name} key={item.id}>
-                              {item.name}
-                            </option>
-                          ))
+                              <option value={item.name} key={item.id}>
+                                {item.name}
+                              </option>
+                            ))
                           : ""}
                       </Form.Select>
                     </Form.Group>
@@ -279,19 +259,19 @@ function AddUserRole() {
                         <br></br>
                         {subjectList
                           ? subjectList
-                            .filter((item) => item.class === values.class)
-                            .map((item) => (
-                              <Form.Check
-                                inline
-                                label={item.subject}
-                                name="subjects"
-                                type="checkbox"
-                                id={`inline-${item.id}-1`}
-                                key={item.id}
-                                onChange={handleChange}
-                                value={item.subject}
-                              />
-                            ))
+                              .filter((item) => item.class === values.class)
+                              .map((item) => (
+                                <Form.Check
+                                  inline
+                                  label={item.subject}
+                                  name="subjects"
+                                  type="checkbox"
+                                  id={`inline-${item.id}-1`}
+                                  key={item.id}
+                                  onChange={handleChange}
+                                  value={item.subject}
+                                />
+                              ))
                           : ""}
                       </Form.Group>
                     ) : (
@@ -314,4 +294,4 @@ function AddUserRole() {
   );
 }
 
-export default AddUserRole
+export default AddUserRole;
