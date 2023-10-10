@@ -13,6 +13,8 @@ import { getAllUserRole, editUserRole } from "../../../Services/UserRoleApi";
 import Topbar from "../../../Components/Header/topbar";
 import { UserRoles } from "../../../Services/Auth";
 import { useParams } from "react-router-dom";
+import InputGroup from "react-bootstrap/InputGroup";
+
 
 const INACTIVE = "inactive";
 const ACTIVE = "active";
@@ -43,6 +45,13 @@ export const UserRoleStatus = Object.freeze({
     getClasses();
     getSubjects();
   }, []);
+
+
+  const [touchedFields, setTouchedFields] = useState({});
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+
 
   const getUserRoleDetail = async() => {
     const response = await getAllUserRole(id);
@@ -93,7 +102,9 @@ export const UserRoleStatus = Object.freeze({
   };
 
   const schema = yup.object().shape({
-    name: yup.string().required(),
+    name: yup.string().required("Name is required")
+    .matches(/^[A-Za-z]+$/, "Name must contain only alphabets")
+    .max(30, "Name must not exceed 30 characters"),
 
     class: yup.string().required(),
     status: yup.string().required(),
@@ -101,8 +112,14 @@ export const UserRoleStatus = Object.freeze({
       .array()
       .required()
       .min(1, "Please select at least one subject"),
-    email: yup.string().required(),
-    password: yup.string().required(),
+    email: yup.string() 
+    .required("Email is required")
+    .email("Invalid email format")
+    .matches(/@/, "Email must include @ symbol")
+    .max(30, "Email must not exceed 30 characters"),
+    password: yup.string().required()
+    .min(5, "Password must be at least 5 characters")
+    .max(10, "Password must not exceed 10 characters"),
   });
 
   return (
@@ -118,7 +135,7 @@ export const UserRoleStatus = Object.freeze({
                 onSubmit={handaleFormSubmit}
                 initialValues={userroleDetail}
               >
-                {({ handleSubmit, handleChange, values, touched, errors }) => (
+                {({ handleSubmit, handleChange, values,handleBlur,  touched, errors }) => (
                   <Form noValidate onSubmit={handleSubmit}>
                     {getValues(values, touched, errors)}
                     <Row className="my-3">
@@ -130,11 +147,15 @@ export const UserRoleStatus = Object.freeze({
                           onKeyDown={SpaceBlock}
                           value={values.name}
                           onChange={handleChange}
+                          onBlur={(e) => {
+                            handleBlur(e);
+                            setTouchedFields({ ...touchedFields, name: true });
+                          }}
                           isValid={touched.name && !errors.name}
                         />
-                        <Form.Control.Feedback type="invalid">
-                          {errors.name}
-                        </Form.Control.Feedback>
+                        {touchedFields.name && errors.name && (
+                        <div className="error-message">{errors.name}</div>
+                      )}
                       </Form.Group>
 
                       <Form.Group as={Col} className="position-relative">
@@ -185,14 +206,18 @@ export const UserRoleStatus = Object.freeze({
                           onKeyDown={SpaceBlock}
                           value={values.email}
                           onChange={handleChange}
+                          onBlur={(e) => {
+                            handleBlur(e);
+                            setTouchedFields({ ...touchedFields, email: true });
+                          }}
                           isValid={touched.email && !errors.email}
                         />
-                        <Form.Control.Feedback type="invalid">
-                          {errors.email}
-                        </Form.Control.Feedback>
+                         {touchedFields.email && errors.email && (
+                        <div className="error-message">{errors.email}</div>
+                      )}
                       </Form.Group>
 
-                      <Form.Group as={Col} md="4" className="position-relative">
+                      {/* <Form.Group as={Col} md="4" className="position-relative">
                         <Form.Label> Password</Form.Label>
                         <Form.Control
                           type="password"
@@ -202,7 +227,37 @@ export const UserRoleStatus = Object.freeze({
                           onChange={handleChange}
                           isValid={touched.password && !errors.password}
                         />
-                      </Form.Group>
+                      </Form.Group> */}
+
+<Form.Group as={Col} md="4" className="position-relative">
+                      <Form.Label> Password</Form.Label>
+                      <InputGroup>
+                        <Form.Control
+                          type={showPassword ? "text" : "password"}
+                          name="password"
+                          onKeyDown={SpaceBlock}
+                          value={values.password}
+                          onChange={handleChange}
+                          onBlur={(e) => {
+                            handleBlur(e);
+                            setTouchedFields({ ...touchedFields, password: true });
+                          }}
+                          isValid={touched.password && !errors.password}
+                        />
+                   
+                        <Button
+                          variant="outline-secondary"
+                          onClick={() => setShowPassword(!showPassword)}
+                        >
+                          {showPassword ? "Hide" : "Show"}
+                        </Button>
+                      </InputGroup>
+                      {/* {touched.password && errors.password && ( */}
+                              {touchedFields.password && errors.password && (
+                                <div className="error-message">{errors.password}</div>
+                              )}
+                      
+                    </Form.Group>
                     </Row>
 
                     <Row className="my-3">

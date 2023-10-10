@@ -16,37 +16,7 @@
       "id": 3
     }
   ],
-  "subjects": [
-    {
-      "class": "2",
-      "subject": "science",
-      "id": 1
-    },
-    {
-      "class": "1",
-      "subject": "maths",
-      "id": 2
-    },
-    {
-      "class": "2",
-      "subject": "hindi",
-      "id": 3
-    },
-    {
-      "class": "2",
-      "subject": "maths",
-      "id": 4
-    },
-    {
-      "class": "2",
-      "subject": "qqq",
-      "id": 5
-    },
-    {
-      "class": "2",
-      "id": 6
-    }
-  ],
+  "subjects": [],
   "users": [
     {
       "id": 1,
@@ -54,19 +24,6 @@
       "name": "admin",
       "email": "admin@gmail.com",
       "password": "1234567"
-    },
-    {
-      "id": 2,
-      "name": "maam",
-      "mobile": "",
-      "class": "1",
-      "subjects": [
-        "hindi"
-      ],
-      "status": "inactive",
-      "email": "teacher@gmail.com",
-      "password": "1234567",
-      "role": "teacher"
     },
     {
       "id": 3,
@@ -80,8 +37,7 @@
       "status": "active",
       "email": "student@yama.com",
       "password": "1234567",
-      "role": "student",
-      "id": 3
+      "role": "student"
     },
     {
       "name": "shweta",
@@ -90,9 +46,6 @@
       "subjects": [
         "science"
       ],
-      "status": "active",
-      "email": "abc@gmail.com",
-      "password": "11111",
       "status": "active",
       "email": "shweta@yahoo.com",
       "password": "1234567",
