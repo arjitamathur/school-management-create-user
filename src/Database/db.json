@@ -11,31 +11,30 @@
       "id": 2
     },
     {
-      "classDetail": null,
-      "name": "6",
+      "name": "7",
       "status": "active",
       "id": 3
     }
   ],
   "subjects": [
     {
-      "class": "1",
+      "class": "2",
       "subject": "science",
       "id": 1
     },
     {
       "class": "1",
-      "subject": "hindi",
+      "subject": "maths",
       "id": 2
     },
     {
       "class": "2",
-      "subject": "maths",
+      "subject": "hindi",
       "id": 3
     },
     {
       "class": "2",
-      "subject": "science",
+      "subject": "maths",
       "id": 4
     }
   ],
@@ -66,7 +65,8 @@
       "mobile": "",
       "class": "1",
       "subjects": [
-        "science"
+        "science",
+        "maths"
       ],
       "status": "active",
       "email": "student@yama.com",

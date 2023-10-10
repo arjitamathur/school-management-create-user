@@ -32,11 +32,16 @@ function EditClass() {
 
   const getDetail = async () => {
     if (id) {
-      const response =await getAllClass(id);
+      const response = await getAllClass(id);
       setClassDetail(response.data);
+
+      // Set initial form values here
+      formik.setValues({
+        name: response.data.name.toString(),
+        status: response.data.status,
+      });
     }
   };
-
 
 
   const checkIfClassExists = async (name) => {
@@ -56,8 +61,8 @@ function EditClass() {
 
   const formik = useFormik({
     initialValues:  {
-      name: classDetail ? classDetail.name : "", 
-      status: classDetail ? classDetail.status : "", 
+      name:  "",  
+      status:  "", 
     },
     validationSchema: yup.object().shape({
       name: yup

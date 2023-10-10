@@ -26,6 +26,7 @@ function PrincipleRouter(props) {
       <ToastContainer autoClose={3000} hideProgressBar />
       <Routes>
         <Route path="/" element={<UserDashboard />} />
+        <Route path="*" element={<Login />} />
         {/* <Route path="/login" element={<Login />} /> */}
      
         <Route path="/userrole" element={<UserRole />} />
@@ -56,6 +57,7 @@ function TeacherRouter(props) {
       <ToastContainer autoClose={3000} hideProgressBar />
       <Routes>
         <Route path="/" element={<UserDashboard />} />
+        <Route path="*" element={<Login />} />
         <Route path="/profile" element={<UserDashboard />} />
 
         <Route path="/login" element={<Login />} />
@@ -82,6 +84,7 @@ function StudentRouter(props) {
       <ToastContainer autoClose={3000} hideProgressBar />
       <Routes>
         <Route path="/profile" element={<UserDashboard />} />
+        <Route path="*" element={<Login />} />
 
         <Route path="/login" element={<Login />} />
         
@@ -96,7 +99,7 @@ function PublicRouter() {
       {/* <Route path="/" element={<UserDashboard />} /> */}
 
       <Route path="/" element={<Login />} />
-   
+      <Route path="*" element={<Login />} />
    
       <Route path="/login" element={<Login />} />
 

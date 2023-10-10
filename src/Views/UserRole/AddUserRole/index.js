@@ -12,6 +12,7 @@ import { getAllSubject } from "../../../Services/SubjectApi";
 import { addUserRole } from "../../../Services/UserRoleApi";
 import Topbar from "../../../Components/Header/topbar";
 import { UserRoles } from "../../../Services/Auth";
+import InputGroup from "react-bootstrap/InputGroup";
 
 const INACTIVE = "inactive";
 const ACTIVE = "active";
@@ -34,6 +35,8 @@ function AddUserRole() {
 
   const [classList, setClass] = useState([]);
   const [subjectList, setSubject] = useState([]);
+  const [showPassword, setShowPassword] = useState(false);
+
 
   useEffect(() => {
     getClasses();
@@ -66,7 +69,7 @@ function AddUserRole() {
     };
     
     
-
+    
 
   const validateSubjects = (values) => {
     const selectedSubjects = values.subjects;
@@ -137,20 +140,7 @@ function AddUserRole() {
                       </Form.Control.Feedback>
                     </Form.Group>
 
-                    {/* <Form.Group as={Col} md="4" className="position-relative">
-                      <Form.Label> Mobile</Form.Label>
-                      <Form.Control
-                        type="text"
-                        name="mobile"
-                        onKeyDown={SpaceBlock}
-                        value={values.mobile}
-                        onChange={handleChange}
-                        isValid={touched.mobile && !errors.mobile}
-                      />
-                      <Form.Control.Feedback type="invalid">
-                        {errors.mobile}
-                      </Form.Control.Feedback>
-                    </Form.Group> */}
+              
 
                     <Form.Group as={Col} className="position-relative">
                       <Form.Label> Status</Form.Label>
@@ -209,15 +199,30 @@ function AddUserRole() {
 
                     <Form.Group as={Col} md="4" className="position-relative">
                       <Form.Label> Password</Form.Label>
-                      <Form.Control
-                        type="password"
-                        name="password"
-                        onKeyDown={SpaceBlock}
-                        value={values.password}
-                        onChange={handleChange}
-                        isValid={touched.password && !errors.password}
-                      />
+                      <InputGroup>
+                        <Form.Control
+                          type={showPassword ? "text" : "password"}
+                          name="password"
+                          onKeyDown={SpaceBlock}
+                          value={values.password}
+                          onChange={handleChange}
+                          isValid={touched.password && !errors.password}
+                        />
+                        <Button
+                          variant="outline-secondary"
+                          onClick={() => setShowPassword(!showPassword)}
+                        >
+                          {showPassword ? "Hide" : "Show"}
+                        </Button>
+                      </InputGroup>
+                      {touched.password && errors.password && (
+                        <Form.Control.Feedback type="invalid">
+                          {errors.password}
+                        </Form.Control.Feedback>
+                      )}
                     </Form.Group>
+
+                    
                   </Row>
 
                   <Row className="my-3">
