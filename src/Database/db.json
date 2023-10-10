@@ -18,7 +18,7 @@
   ],
   "subjects": [
     {
-      "class": "2",
+      "class": "1",
       "subject": "science",
       "id": 1
     },
@@ -29,22 +29,13 @@
     },
     {
       "class": "2",
-      "subject": "hindi",
+      "subject": "science",
       "id": 3
     },
     {
       "class": "2",
       "subject": "maths",
       "id": 4
-    },
-    {
-      "class": "2",
-      "subject": "qqq",
-      "id": 5
-    },
-    {
-      "class": "2",
-      "id": 6
     }
   ],
   "users": [
@@ -56,23 +47,22 @@
       "password": "1234567"
     },
     {
-      "id": 2,
       "name": "maam",
       "mobile": "",
       "class": "1",
       "subjects": [
-        "hindi"
+        "science"
       ],
-      "status": "inactive",
-      "email": "teacher@gmail.com",
+      "status": "active",
+      "email": "maam2@gmail.com",
       "password": "1234567",
-      "role": "teacher"
+      "role": "teacher",
+      "id": 2
     },
     {
-      "id": 3,
-      "name": "Student",
+      "name": "student",
       "mobile": "",
-      "class": "1",
+      "class": "2",
       "subjects": [
         "science",
         "maths"
@@ -82,48 +72,6 @@
       "password": "1234567",
       "role": "student",
       "id": 3
-    },
-    {
-      "name": "shweta",
-      "mobile": "",
-      "class": "1",
-      "subjects": [
-        "science"
-      ],
-      "status": "active",
-      "email": "abc@gmail.com",
-      "password": "11111",
-      "status": "active",
-      "email": "shweta@yahoo.com",
-      "password": "1234567",
-      "role": "teacher",
-      "id": 7
-    },
-    {
-      "name": "nina",
-      "mobile": "",
-      "class": "1",
-      "subjects": [
-        "science"
-      ],
-      "status": "active",
-      "email": "nina@yama.com",
-      "password": "1234567",
-      "role": "teacher",
-      "id": 5
-    },
-    {
-      "name": "madam",
-      "mobile": "",
-      "class": "1",
-      "subjects": [
-        "science"
-      ],
-      "status": "active",
-      "email": "madam@yama.com",
-      "password": "1234567",
-      "role": "teacher",
-      "id": 6
     }
   ]
 }

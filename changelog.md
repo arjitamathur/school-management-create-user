@@ -7,6 +7,7 @@
  # Fixed
  - fixed edituserrole [fix/edituserrole]
  - fixed edit class and modified adduserole [fix/editclass]
+ - fixed edituserole subjects issue [fix/edituserrole-subjects]
 
  # Added
  - Create User Role , Login by admin , Protected Routes [making-principal-admin]

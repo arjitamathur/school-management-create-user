@@ -255,7 +255,7 @@ function EditUserRole() {
                                     key={item.id}
                                     onChange={handleChange}
                                     value={item.subject}
-                                    checked= {item.isSelected}
+                                    checked={values.subjects.includes(item.subject)}
                                   />
                                 ))
                             : ""}
