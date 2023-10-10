@@ -31,7 +31,7 @@ export const deleteUserRole = async (id) => {
     const authenticatedUser= getAuthenticatedUser();
     if(authenticatedUser.id===id){
         return new Promise(r =>
-            toast.error('Cannot Delete logged in user')
+            toast.error('Cannot Delete Admin')
           )
      } return await axios.delete(`${baseUrl}/users/${id}`);
 

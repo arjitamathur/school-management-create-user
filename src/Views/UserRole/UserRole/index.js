@@ -9,6 +9,7 @@ import Pagination from "react-bootstrap/Pagination";
 import { getAllUserRole, deleteUserRole } from "../../../Services/UserRoleApi";
 import { getAllClass } from "../../../Services/ClassApi";
 import Topbar from "../../../Components/Header/topbar";
+import { UserRoles } from "../../../Services/Auth";
 
 function UserRole() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -115,7 +116,7 @@ function UserRole() {
             </Form.Select>
           </Col>
 
-          <Col sm={2}>
+          {/* <Col sm={2}>
             <Form.Select value={selectedClass} onChange={handleClassChange}>
               <option value="">All Classes</option>
               {classList.length && classList.map((item) => (
@@ -124,7 +125,7 @@ function UserRole() {
                 </option>
               ))}
             </Form.Select>
-          </Col>
+          </Col> */}
 
           <Col sm={2}>
             <Form.Select value={selectedStatus} onChange={handleStatusChange}>
@@ -169,6 +170,7 @@ function UserRole() {
                         variant="primary"
                         style={{ margin: "0px 20px" }}
                         onClick={() => onEditUserRole(data.id)}
+                        disabled={data.role  === 'admin'}
                       >
                         Edit
                       </Button>
@@ -176,6 +178,7 @@ function UserRole() {
                         variant="danger"
                         style={{ margin: "0px 20px" }}
                         onClick={() => deleteData(data.id)}
+                        disabled={data.role  === 'admin'}
                       >
                         Delete
                       </Button>

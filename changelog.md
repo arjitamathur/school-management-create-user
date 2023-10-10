@@ -3,6 +3,7 @@
  - Routing of UserProfile of student and teacher [userprofile]
  - added show hide button for users [users-password]
  - changed modal of teacher and student [modal]
+ - admin cannot be edited or deleted from table [admin-edit-del]
 
  
  # Fixed
