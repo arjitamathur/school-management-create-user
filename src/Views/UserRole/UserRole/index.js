@@ -32,7 +32,9 @@ function UserRole() {
 
   const getUserRoles = async () => {
     const response = await getAllUserRole();
-    setUserRole(response.data);
+    const sortedUserRoles = response.data.sort((a, b) => b.id - a.id); 
+
+    setUserRole(sortedUserRoles);
  };
 
  
@@ -157,9 +159,9 @@ function UserRole() {
                 </tr>
               </thead>
               <tbody>
-                {paginatedUserRole.map((data) => (
+                {paginatedUserRole.map((data , index) => (
                   <tr key={data.id}>
-                    <td>{data.id}</td>
+                    <td>{startIndex + index + 1}</td>
                     <td>{data.name}</td>
                     <td>{data.role}</td>
                     <td>{data.email}</td>

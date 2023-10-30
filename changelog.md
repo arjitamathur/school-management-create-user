@@ -5,6 +5,7 @@
  - changed modal of teacher and student [modal]
  - admin cannot be edited or deleted from table [admin-edit-del]
  - added password encryption for Login [password-encryption]
+ 
 
  
  # Fixed
@@ -21,4 +22,4 @@
  - validation of userrole-edituser [editusers]
  - fixed navlinks [fix/navbar]
  - fixed edit functionality and validations [fix/edit]
- - 
+ - updated latest users at 1st [user-serialized]
