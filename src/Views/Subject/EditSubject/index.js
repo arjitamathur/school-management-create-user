@@ -122,7 +122,7 @@ function EditSubject() {
                 </Row>
                 <Row className="my-2">
                   <Col>
-                    <Button type="submit">Submit</Button>
+                    <Button type="submit">Edit</Button>
                   </Col>
                 </Row>
 
