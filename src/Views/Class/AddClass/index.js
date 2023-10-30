@@ -19,8 +19,8 @@ export const ClassStatus = Object.freeze({
 });
 
 function AddClass() {
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
 
   const checkIfClassExists = async (name) => {
     const response =await getAllClass();
@@ -59,7 +59,7 @@ function AddClass() {
           }
         ),
     }),
-    onSubmit: async (values, { setFieldError }) => {
+    onSubmit: async (values, {setFieldError }) => {
       const { name } = values;
 
       const isClassAlreadyExists = await checkIfClassExists(name);
@@ -75,6 +75,10 @@ function AddClass() {
       }
     },
   });
+
+
+
+  
   return (
     <div>
       <Topbar />

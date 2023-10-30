@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import { getUser, checkPassword, UserRoles } from "../../Services/Auth";
 import InputGroup from "react-bootstrap/InputGroup";
+import bcrypt from 'bcryptjs';
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -33,16 +35,7 @@ const Login = () => {
   const addData = async (e) => {
     e.preventDefault();
     const { email, password } = inpval;
-
-        // // Check for spaces before or after the email address
-        // if (email.trim() !== email) {
-        //   toast.error('Please enter a valid email address', {
-        //     position: "top-center",
-        //   });
-        //   return;
-        // }
-    
-        
+  
     // Check for spaces before or after the email address
     if (email.indexOf(" ") !== -1) {
       toast.error('Please enter a valid email address', {
@@ -57,19 +50,15 @@ const Login = () => {
       });
       return;
     }
-
-
-
+  
     if (email === "") {
       toast.error('email field is required', {
         position: "top-center",
       });
-
     } else if (!email.includes("@")) {
       toast.error('plz enter valid email address', {
         position: "top-center",
       });
-
     } else if (password === "") {
       toast.error('password field is required', {
         position: "top-center",
@@ -79,12 +68,16 @@ const Login = () => {
         position: "top-center",
       });
     } else {
-      const userdata = await getUser(email)
-      console.log("userdata", userdata)
+      const userdata = await getUser(email);
+      console.log("userdata", userdata);
       if (userdata) {
         // Verify the user password
-
-        if (checkPassword(password, userdata.password)) {
+        const isPasswordCorrect = await checkPassword(password, userdata.password);
+        if (isPasswordCorrect) {
+          // Hash the password before storing it in the session storage
+          const hashedPassword = await bcrypt.hash(password, 10);
+          userdata.password = hashedPassword;
+  
           sessionStorage.setItem("authUser", JSON.stringify(userdata));
           // Check the user role and redirect to the page
           redirectUser(userdata);
@@ -99,8 +92,8 @@ const Login = () => {
         });
       }
     }
-
   }
+  
 
   const redirectUser = (userData) => {
     setTimeout(() => {

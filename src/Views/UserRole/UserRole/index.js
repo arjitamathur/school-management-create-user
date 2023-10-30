@@ -9,7 +9,7 @@ import Pagination from "react-bootstrap/Pagination";
 import { getAllUserRole, deleteUserRole } from "../../../Services/UserRoleApi";
 import { getAllClass } from "../../../Services/ClassApi";
 import Topbar from "../../../Components/Header/topbar";
-import { UserRoles } from "../../../Services/Auth";
+
 
 function UserRole() {
   const [searchTerm, setSearchTerm] = useState("");
