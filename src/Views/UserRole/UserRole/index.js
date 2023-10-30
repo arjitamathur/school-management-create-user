@@ -37,13 +37,13 @@ function UserRole() {
     setUserRole(sortedUserRoles);
  };
 
- 
+
 
   const getClasses = async () => {
     const response = await getAllClass();
     setClass(response);
   };
-
+  
   const deleteData = (id) => {
     deleteUserRole(id);
     getUserRoles();
@@ -118,16 +118,6 @@ function UserRole() {
             </Form.Select>
           </Col>
 
-          {/* <Col sm={2}>
-            <Form.Select value={selectedClass} onChange={handleClassChange}>
-              <option value="">All Classes</option>
-              {classList.length && classList.map((item) => (
-                <option value={item.name} key={item.id}>
-                  {item.name}
-                </option>
-              ))}
-            </Form.Select>
-          </Col> */}
 
           <Col sm={2}>
             <Form.Select value={selectedStatus} onChange={handleStatusChange}>
@@ -136,6 +126,19 @@ function UserRole() {
               <option value="inactive">Inactive</option>
             </Form.Select>
           </Col>
+
+{/* 
+<Col sm={2}>
+          <Form.Select value={selectedClass} onChange={handleClassChange}>
+            <option value="">All Classes</option>
+            {classList.map((item) => (
+              <option value={item.name} key={item.id}>
+                {item.name}
+              </option>
+            ))}
+          </Form.Select>
+        </Col>
+ */}
 
           <Col md="auto">
             <Button variant="primary" onClick={onAddUserRole}>

@@ -14,6 +14,11 @@
       "name": "9",
       "status": "active",
       "id": 3
+    },
+    {
+      "name": "5",
+      "status": "active",
+      "id": 4
     }
   ],
   "subjects": [
@@ -80,6 +85,33 @@
       "password": "Shweta@123",
       "role": "teacher",
       "id": 2
+    },
+    {
+      "name": "arjita",
+      "mobile": "",
+      "class": "1",
+      "subjects": [
+        "science"
+      ],
+      "status": "active",
+      "email": "arjita@gmail.com",
+      "password": "Arjita@12",
+      "role": "teacher",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "name": "ramesh",
+      "mobile": "",
+      "class": "1",
+      "subjects": [
+        "science",
+        "maths"
+      ],
+      "status": "active",
+      "email": "ramesh@gmail.com",
+      "password": "Ramesh@22",
+      "role": "teacher"
     }
   ]
 }

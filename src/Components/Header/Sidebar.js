@@ -41,6 +41,13 @@ function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebar-header">
+      {/* <img src={schoolIcon} alt="School Icon" className="school-icon" />
+      <img
+  src={schoolIcon}
+  alt="School Icon"
+  className="school-icon"
+  style={{ position: 'absolute', top: '0', left: '0' }}
+/> */}
         <h2 className="header-logo">LOGO</h2>
       </div>
       <nav className="sidebar-nav">
