@@ -12,15 +12,23 @@
     },
     {
       "name": "6",
-      "name": "6",
       "status": "active",
       "id": 3
     },
     {
       "name": "7",
-      "name": "7",
       "status": "active",
       "id": 4
+    },
+    {
+      "name": "11",
+      "status": "active",
+      "id": 5
+    },
+    {
+      "name": "5",
+      "status": "active",
+      "id": 6
     }
   ],
   "subjects": [
@@ -28,6 +36,31 @@
       "class": "1",
       "subject": "maths",
       "id": 2
+    },
+    {
+      "class": "11",
+      "subject": "eng",
+      "id": 3
+    },
+    {
+      "class": "11",
+      "subject": "maths",
+      "id": 4
+    },
+    {
+      "class": "11",
+      "subject": "science",
+      "id": 5
+    },
+    {
+      "class": "11",
+      "subject": "geo",
+      "id": 6
+    },
+    {
+      "class": "11",
+      "subject": "polity",
+      "id": 7
     }
   ],
   "users": [
@@ -39,70 +72,17 @@
       "password": "1234567"
     },
     {
-      "name": "Arjita",
-      "mobile": "",
-      "class": "1",
-      "subjects": [
-        "science",
-        "maths"
-      ],
-      "status": "inactive",
-      "email": "mathurarjita09@gmail.com",
-      "password": "123456",
-      "role": "student",
-      "id": 5
-    },
-    {
-      "id": 6,
       "name": "shweta",
       "mobile": "",
       "class": "1",
       "subjects": [
-        "science"
-      ],
-      "status": "active",
-      "email": "teacher@gmail.com",
-      "password": "12345678",
-      "role": "teacher"
-    },
-    {
-      "name": "rita",
-      "mobile": "",
-      "class": "1",
-      "subjects": [
         "maths"
       ],
       "status": "active",
-      "email": "rita@yama.com",
-      "password": "Rita@12345",
+      "email": "shweta@gmail.com",
+      "password": "Shweta@123",
       "role": "teacher",
-      "id": 7
-    },
-    {
-      "name": "neha",
-      "mobile": "",
-      "class": "2",
-      "subjects": [
-        "science"
-      ],
-      "status": "active",
-      "email": "neha@gmail.com",
-      "password": "Neha@134",
-      "role": "teacher",
-      "id": 7
-    },
-    {
-      "name": "rohit",
-      "mobile": "",
-      "class": "1",
-      "subjects": [
-        "maths"
-      ],
-      "status": "active",
-      "email": "rohit@gmail.com",
-      "password": "Rohit@123",
-      "role": "student",
-      "id": 8
+      "id": 2
     }
   ]
 }
