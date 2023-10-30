@@ -11,56 +11,36 @@
       "id": 2
     },
     {
-      "name": "6",
+      "name": "9",
       "status": "active",
       "id": 3
-    },
-    {
-      "name": "7",
-      "status": "active",
-      "id": 4
-    },
-    {
-      "name": "11",
-      "status": "active",
-      "id": 5
-    },
-    {
-      "name": "5",
-      "status": "active",
-      "id": 6
     }
   ],
   "subjects": [
+    {
+      "class": "1",
+      "subject": "science",
+      "id": 1
+    },
     {
       "class": "1",
       "subject": "maths",
       "id": 2
     },
     {
-      "class": "11",
-      "subject": "eng",
+      "class": "2",
+      "subject": "maths",
       "id": 3
     },
     {
-      "class": "11",
-      "subject": "maths",
+      "class": "2",
+      "subject": "hindi",
       "id": 4
     },
     {
-      "class": "11",
-      "subject": "science",
+      "class": "2",
+      "subject": "comp",
       "id": 5
-    },
-    {
-      "class": "11",
-      "subject": "geo",
-      "id": 6
-    },
-    {
-      "class": "11",
-      "subject": "polity",
-      "id": 7
     }
   ],
   "users": [
@@ -92,14 +72,14 @@
       "mobile": "",
       "class": "11",
       "subjects": [
-        "maths",
+        "science",
         "science"
       ],
       "status": "active",
-      "email": "neha@gmail.com",
-      "password": "Neha@123",
-      "role": "student",
-      "id": 3
+      "email": "shweta@gmail.com",
+      "password": "Shweta@123",
+      "role": "teacher",
+      "id": 2
     }
   ]
 }

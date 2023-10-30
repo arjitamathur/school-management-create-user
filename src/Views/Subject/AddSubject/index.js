@@ -221,7 +221,7 @@ function AddSubject() {
             </Row>
             <Row className="my-2">
               <Col>
-                <Button type="submit">Submit</Button>
+                <Button type="submit">Add</Button>
               </Col>
             </Row>
           </Form>

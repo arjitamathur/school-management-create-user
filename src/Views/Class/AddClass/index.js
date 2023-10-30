@@ -128,7 +128,7 @@ function AddClass() {
             </Row>
             <Row className="mt-2">
               <Col>
-                <Button type="submit">Submit form</Button>
+                <Button type="submit">Add</Button>
               </Col>
             </Row>
           </Form>

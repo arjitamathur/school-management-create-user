@@ -150,7 +150,7 @@ function EditClass() {
               </Row>
               <Row className="mt-2">
                 <Col>
-                  <Button type="submit">Submit form</Button>
+                  <Button type="submit">Edit</Button>
                 </Col>
               </Row>
             </Form>
