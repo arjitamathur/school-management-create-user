@@ -164,7 +164,7 @@ export const UserRoleStatus = Object.freeze({
                       <Form.Group as={Col} className="position-relative">
                         <Form.Label> Status</Form.Label>
                         <Form.Select
-                          name="status"
+                           name="status"
                           aria-label="Default select example"
                           value={values.status}
                           onChange={handleChange}
