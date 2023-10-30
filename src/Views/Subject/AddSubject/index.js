@@ -10,6 +10,7 @@ import React, { useEffect, useState } from "react";
 import { getAllClass } from "../../../Services/ClassApi";
 import { addSubject } from "../../../Services/SubjectApi";
 import Topbar from "../../../Components/Header/topbar";
+import Breadcrumb from "react-bootstrap/Breadcrumb";
 
 function AddSubject() {
   const navigate = useNavigate();
@@ -130,6 +131,11 @@ function AddSubject() {
     <div>
       <Topbar/>
     <Container>
+    <Breadcrumb>
+          <Breadcrumb.Item href="/subjects">Subjects</Breadcrumb.Item>
+          <Breadcrumb.Item active>Add Subjects</Breadcrumb.Item>
+
+        </Breadcrumb>
       <Row>
         <Col>
           <Form noValidate onSubmit={formik.handleSubmit}>

@@ -14,6 +14,7 @@ import Topbar from "../../../Components/Header/topbar";
 import { UserRoles } from "../../../Services/Auth";
 import { useParams } from "react-router-dom";
 import InputGroup from "react-bootstrap/InputGroup";
+import Breadcrumb from "react-bootstrap/Breadcrumb";
 
 
 const INACTIVE = "inactive";
@@ -130,6 +131,11 @@ export const UserRoleStatus = Object.freeze({
       <Topbar />
       <Container>
         <Row>
+        <Breadcrumb>
+          <Breadcrumb.Item href="/userrole">User Roles</Breadcrumb.Item>
+          <Breadcrumb.Item active>Edit User Role</Breadcrumb.Item>
+
+        </Breadcrumb>
           {userroleDetail ? (
             <Col>
               <Formik

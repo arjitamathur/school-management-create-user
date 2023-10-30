@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { addClass, getAllClass } from "../../../Services/ClassApi";
 import { useFormik } from "formik";
 import Topbar from "../../../Components/Header/topbar";
+import Breadcrumb from "react-bootstrap/Breadcrumb";
 
 
 const INACTIVE = "inactive";
@@ -83,6 +84,11 @@ function AddClass() {
     <div>
       <Topbar />
     <Container>
+    <Breadcrumb>
+          <Breadcrumb.Item href="/class">Class</Breadcrumb.Item>
+          <Breadcrumb.Item active>Add Class</Breadcrumb.Item>
+
+        </Breadcrumb>
       <Row>
         <Col>
           <Form noValidate onSubmit={formik.handleSubmit}>

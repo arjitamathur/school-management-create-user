@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import { getAllSubject, editSubject } from "../../../Services/SubjectApi";
 import { getAllClass } from "../../../Services/ClassApi";
+import Breadcrumb from "react-bootstrap/Breadcrumb";
 
 
 import { useParams } from 'react-router-dom';
@@ -55,12 +56,18 @@ function EditSubject() {
     <div>
     <Topbar />
     <Container>
+
       <Row>
 
       {
           subjectDetail ? 
 
         <Col>
+         <Breadcrumb>
+          <Breadcrumb.Item href="/subjects">Subjects</Breadcrumb.Item>
+          <Breadcrumb.Item active>Edit Subjects</Breadcrumb.Item>
+
+        </Breadcrumb>
           <Formik
             validationSchema={schema}
             onSubmit={handaleFormSubmit}
