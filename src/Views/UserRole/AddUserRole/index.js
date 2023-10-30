@@ -13,6 +13,8 @@ import { addUserRole } from "../../../Services/UserRoleApi";
 import Topbar from "../../../Components/Header/topbar";
 import { UserRoles } from "../../../Services/Auth";
 import InputGroup from "react-bootstrap/InputGroup";
+import Breadcrumb from "react-bootstrap/Breadcrumb";
+
 
 const INACTIVE = "inactive";
 const ACTIVE = "active";
@@ -57,23 +59,23 @@ function AddUserRole() {
     setSubject(response.data);
   };
 
- const handaleFormSubmit = async (e) => {
-   const selectedRole = e.role; 
+  const handaleFormSubmit = async (e) => {
+    const selectedRole = e.role;
 
-   let roleValue;
+    let roleValue;
 
-   if (selectedRole === TEACHER) {
-     roleValue = UserRoles.TEACHER;
-   } else if (selectedRole === STUDENT) {
-     roleValue = UserRoles.STUDENT;
-   } 
+    if (selectedRole === TEACHER) {
+      roleValue = UserRoles.TEACHER;
+    } else if (selectedRole === STUDENT) {
+      roleValue = UserRoles.STUDENT;
+    }
 
-   await addUserRole({ ...e, role: roleValue });
-   navigate("/userrole");
-    };
-    
-    
-    
+    await addUserRole({ ...e, role: roleValue });
+    navigate("/userrole");
+  };
+
+
+
 
   const validateSubjects = (values) => {
     const selectedSubjects = values.subjects;
@@ -107,16 +109,16 @@ function AddUserRole() {
       .email("Invalid email format")
       .matches(/@/, "Email must include @ symbol")
       .max(30, "Email must not exceed 30 characters"),
-      password: yup
+    password: yup
       .string()
       .required("Password is required")
-      .min(8, "Password must be at least 8 characters") 
-      .max(10, "Password must not exceed 10 characters") 
+      .min(8, "Password must be at least 8 characters")
+      .max(10, "Password must not exceed 10 characters")
       .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>])/,
         "Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 special character, and be 8-10 characters long"
       ),
-      
+
   });
 
 
@@ -124,6 +126,12 @@ function AddUserRole() {
     <div>
       <Topbar />
       <Container>
+        <Breadcrumb>
+          <Breadcrumb.Item href="/userrole">User Roles</Breadcrumb.Item>
+          <Breadcrumb.Item active>Add User Role</Breadcrumb.Item>
+
+        </Breadcrumb>
+
         <Row>
           <Col>
             <Formik
@@ -163,7 +171,7 @@ function AddUserRole() {
                       )}
                     </Form.Group>
 
-                   
+
                     <Form.Group as={Col} className="position-relative">
                       <Form.Label> Status</Form.Label>
                       <Form.Select
@@ -203,7 +211,7 @@ function AddUserRole() {
                     </Form.Group>
                   </Row>
 
-                  <Row className="my-3"> 
+                  <Row className="my-3">
                     <Form.Group as={Col} md="4" className="position-relative">
                       <Form.Label> Email</Form.Label>
                       <Form.Control
@@ -219,7 +227,7 @@ function AddUserRole() {
                         isValid={touched.email && !errors.email}
                       />
 
-        
+
                       {touchedFields.email && errors.email && (
                         <div className="error-message">{errors.email}</div>
                       )}
@@ -240,7 +248,7 @@ function AddUserRole() {
                           }}
                           isValid={touched.password && !errors.password}
                         />
-                   
+
                         <Button
                           variant="outline-secondary"
                           onClick={() => setShowPassword(!showPassword)}
@@ -249,13 +257,13 @@ function AddUserRole() {
                         </Button>
                       </InputGroup>
                       {/* {touched.password && errors.password && ( */}
-                              {touchedFields.password && errors.password && (
-                                <div className="error-message">{errors.password}</div>
-                              )}
-                      
+                      {touchedFields.password && errors.password && (
+                        <div className="error-message">{errors.password}</div>
+                      )}
+
                     </Form.Group>
 
-                    
+
                   </Row>
 
                   <Row className="my-3">
@@ -277,10 +285,10 @@ function AddUserRole() {
                         <option>Select class</option>
                         {classList
                           ? classList.map((item) => (
-                              <option value={item.name} key={item.id}>
-                                {item.name}
-                              </option>
-                            ))
+                            <option value={item.name} key={item.id}>
+                              {item.name}
+                            </option>
+                          ))
                           : ""}
                       </Form.Select>
                     </Form.Group>
@@ -297,19 +305,19 @@ function AddUserRole() {
                         <br></br>
                         {subjectList
                           ? subjectList
-                              .filter((item) => item.class === values.class)
-                              .map((item) => (
-                                <Form.Check
-                                  inline
-                                  label={item.subject}
-                                  name="subjects"
-                                  type="checkbox"
-                                  id={`inline-${item.id}-1`}
-                                  key={item.id}
-                                  onChange={handleChange}
-                                  value={item.subject}
-                                />
-                              ))
+                            .filter((item) => item.class === values.class)
+                            .map((item) => (
+                              <Form.Check
+                                inline
+                                label={item.subject}
+                                name="subjects"
+                                type="checkbox"
+                                id={`inline-${item.id}-1`}
+                                key={item.id}
+                                onChange={handleChange}
+                                value={item.subject}
+                              />
+                            ))
                           : ""}
                       </Form.Group>
                     ) : (

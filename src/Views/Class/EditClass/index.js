@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { getAllClass, editClass } from "../../../Services/ClassApi";
 import { useFormik } from "formik";
 import Topbar from "../../../Components/Header/topbar";
+import Breadcrumb from "react-bootstrap/Breadcrumb";
 
 const INACTIVE = "inactive";
 const ACTIVE = "active";
@@ -103,6 +104,11 @@ function EditClass() {
     <div>
       <Topbar/>
     <Container>
+    <Breadcrumb>
+          <Breadcrumb.Item href="/class">Class</Breadcrumb.Item>
+          <Breadcrumb.Item active>Edit Class</Breadcrumb.Item>
+
+        </Breadcrumb>
       <Row>
         {classDetail ? (
           <Col>

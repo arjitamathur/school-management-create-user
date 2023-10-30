@@ -7,7 +7,8 @@
  - added password encryption for Login [password-encryption]
  - classes list coming in descending order [Class-Serialised]
   - Subjects list coming in descending order [Subject-Serialised]
- - classes list coming in descending order [Class-Serialised]
+  - added BreadCrumbs in Class , subject and User Module [BreadCrumbs]
+  - removed color of BreadCrumbs [color-breadcrumbs]
 
  
  # Fixed
