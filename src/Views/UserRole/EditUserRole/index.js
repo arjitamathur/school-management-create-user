@@ -333,9 +333,10 @@ export const UserRoleStatus = Object.freeze({
 
                     <Row className="my-2">
                       <Col>
-                        <Button type="submit">Submit</Button>
+                        <Button type="submit">Edit</Button>
                       </Col>
                     </Row>
+                    
                   </Form>
                 )}
               </Formik>
