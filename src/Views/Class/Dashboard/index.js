@@ -27,8 +27,11 @@ function Dashboard() {
 
   const getClasses = async () => {
     const response = await getAllClass();
-    setClass(response.data);
+    const sortedClasses = response.data.sort((a, b) => b.id - a.id); 
+    setClass(sortedClasses);
   };
+  
+  
 
   const onAddClass = () => {
     window.location.href = "/class/add";
@@ -102,9 +105,9 @@ function Dashboard() {
               </tr>
             </thead>
             <tbody>
-              {classesOnCurrentPage.map((data) => (
+              {classesOnCurrentPage.map((data , index) => (
                 <tr key={data.id}>
-                  <td>{data.id}</td>
+                  <td>{startIndex + index + 1}</td>
                   <td>{data.name}</td>
                   <td>{data.status}</td>
                   <td>

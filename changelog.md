@@ -5,7 +5,7 @@
  - changed modal of teacher and student [modal]
  - admin cannot be edited or deleted from table [admin-edit-del]
  - added password encryption for Login [password-encryption]
- 
+ - classes list coming in descending order [Class-Serialised]
 
  
  # Fixed

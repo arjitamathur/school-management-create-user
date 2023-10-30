@@ -11,34 +11,14 @@
       "id": 2
     },
     {
-      "name": "7",
+      "name": "6",
       "status": "active",
       "id": 3
     },
     {
-      "name": "5",
+      "name": "7",
       "status": "active",
       "id": 4
-    },
-    {
-      "name": "3",
-      "status": "active",
-      "id": 5
-    },
-    {
-      "name": "11",
-      "status": "inactive",
-      "id": 6
-    },
-    {
-      "name": "9",
-      "status": "active",
-      "id": 7
-    },
-    {
-      "name": "10",
-      "status": "inactive",
-      "id": 7
     }
   ],
   "subjects": [
