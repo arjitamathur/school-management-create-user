@@ -34,14 +34,14 @@
       "name": "9",
       "status": "active",
       "id": 7
+    },
+    {
+      "name": "10",
+      "status": "inactive",
+      "id": 7
     }
   ],
   "subjects": [
-    {
-      "class": "1",
-      "subject": "science",
-      "id": 1
-    },
     {
       "class": "1",
       "subject": "maths",

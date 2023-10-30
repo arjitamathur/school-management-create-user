@@ -48,7 +48,6 @@ export const UserRoleStatus = Object.freeze({
 
 
   const [touchedFields, setTouchedFields] = useState({});
-  const [formSubmitted, setFormSubmitted] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
 
@@ -119,7 +118,11 @@ export const UserRoleStatus = Object.freeze({
     .max(30, "Email must not exceed 30 characters"),
     password: yup.string().required()
     .min(5, "Password must be at least 5 characters")
-    .max(10, "Password must not exceed 10 characters"),
+    .max(10, "Password must not exceed 10 characters")
+    .matches(
+      "^(?=.*[A-Za-z])(?=.*d)(?=.*[@$!%*#?&])[A-Za-zd@$!%*#?&]{8,}$",
+      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+    ),
   });
 
   return (

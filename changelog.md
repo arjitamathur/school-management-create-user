@@ -20,3 +20,5 @@
  - fix validation of password [fix/usersdata]
  - validation of userrole-edituser [editusers]
  - fixed navlinks [fix/navbar]
+ - fixed edit functionality and validations [fix/edit]
+ - 
