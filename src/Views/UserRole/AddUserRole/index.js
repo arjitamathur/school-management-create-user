@@ -107,9 +107,16 @@ function AddUserRole() {
       .email("Invalid email format")
       .matches(/@/, "Email must include @ symbol")
       .max(30, "Email must not exceed 30 characters"),
-    password: yup.string().required()
-    .min(5, "Password must be at least 5 characters")
-    .max(10, "Password must not exceed 10 characters"),
+      password: yup
+      .string()
+      .required("Password is required")
+      .min(8, "Password must be at least 8 characters") 
+      .max(10, "Password must not exceed 10 characters") 
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>])/,
+        "Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 special character, and be 8-10 characters long"
+      ),
+      
   });
 
 

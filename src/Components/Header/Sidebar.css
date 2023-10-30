@@ -26,7 +26,8 @@
 }
 
 .sidebar-nav a {
-  color: black;
+  color: white;
+  font-weight: 300px;
   text-decoration: none;
   display: block;
   padding: 10px;

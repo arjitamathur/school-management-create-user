@@ -29,14 +29,14 @@
       "name": "11",
       "status": "inactive",
       "id": 6
+    },
+    {
+      "name": "10",
+      "status": "inactive",
+      "id": 7
     }
   ],
   "subjects": [
-    {
-      "class": "1",
-      "subject": "science",
-      "id": 1
-    },
     {
       "class": "1",
       "subject": "maths",
@@ -100,6 +100,32 @@
       "password": "11144",
       "role": "teacher",
       "id": 4
+    },
+    {
+      "name": "rahul",
+      "mobile": "",
+      "class": "1",
+      "subjects": [
+        "maths"
+      ],
+      "status": "active",
+      "email": "rahul@gmail.com",
+      "password": "Rahul@12222jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjujjj",
+      "role": "teacher",
+      "id": 5
+    },
+    {
+      "name": "Aman",
+      "mobile": "",
+      "class": "1",
+      "subjects": [
+        "maths"
+      ],
+      "status": "active",
+      "email": "aman@gmail.com",
+      "password": "Aman@122",
+      "role": "student",
+      "id": 6
     }
   ]
 }
