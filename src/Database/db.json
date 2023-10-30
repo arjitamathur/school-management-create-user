@@ -52,31 +52,34 @@
       "password": "1234567"
     },
     {
-      "name": "shweta",
+      "id": 2,
+      "name": "Priya",
       "mobile": "",
-      "class": "1",
+      "class": "11",
       "subjects": [
+        "maths",
+        "eng",
+        "science",
+        "geo"
+      ],
+      "status": "active",
+      "email": "priya@gmail.com",
+      "password": "Priya!123",
+      "role": "teacher"
+    },
+    {
+      "name": "Neha",
+      "mobile": "",
+      "class": "11",
+      "subjects": [
+        "science",
         "science"
       ],
       "status": "active",
-      "email": "maam2@gmail.com",
-      "password": "Maam@12345",
+      "email": "shweta@gmail.com",
+      "password": "Shweta@123",
       "role": "teacher",
       "id": 2
-    },
-    {
-      "name": "Arjita",
-      "mobile": "",
-      "class": "2",
-      "subjects": [
-        "hindi",
-        "comp"
-      ],
-      "status": "active",
-      "email": "student@yama.com",
-      "password": "Student@12",
-      "role": "student",
-      "id": 3
     }
   ]
 }

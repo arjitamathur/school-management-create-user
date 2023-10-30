@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   height: 100%;
-  width: 250px;
+  width: 200px;
   background-color: #0d6efd;
   color: #fff;
 }
@@ -23,6 +23,7 @@
 .sidebar-nav {
   list-style: none;
   padding: 0;
+  
 }
 
 .sidebar-nav a {
@@ -30,10 +31,13 @@
   font-weight: 300px;
   text-decoration: none;
   display: block;
-  padding: 10px;
+  padding: 20px;
+  text-align: center;
+  font-size: x-large;
+  font-family: Arial, Helvetica, sans-serif;
 }
-
-/* .sidebar-nav a:hover {
+/* 
+.sidebar-nav a:hover {
   background-color:#555;
 } */
 
@@ -50,5 +54,5 @@
 .active {
  
   font-weight: bold; 
-  background-color: white;
+  background-color: rgb(94, 132, 235);
 }
