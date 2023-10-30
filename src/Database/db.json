@@ -72,17 +72,34 @@
       "password": "1234567"
     },
     {
-      "name": "shweta",
+      "id": 2,
+      "name": "Priya",
       "mobile": "",
-      "class": "1",
+      "class": "11",
       "subjects": [
-        "maths"
+        "maths",
+        "eng",
+        "science",
+        "geo"
       ],
       "status": "active",
-      "email": "shweta@gmail.com",
-      "password": "Shweta@123",
-      "role": "teacher",
-      "id": 2
+      "email": "priya@gmail.com",
+      "password": "Priya!123",
+      "role": "teacher"
+    },
+    {
+      "name": "Neha",
+      "mobile": "",
+      "class": "11",
+      "subjects": [
+        "maths",
+        "science"
+      ],
+      "status": "active",
+      "email": "neha@gmail.com",
+      "password": "Neha@123",
+      "role": "student",
+      "id": 3
     }
   ]
 }

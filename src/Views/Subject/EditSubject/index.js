@@ -43,7 +43,6 @@ function EditSubject() {
     setClass(response.data);
   }
 
-
   const handaleFormSubmit = async (e) => { 
 
    await  editSubject(id, e)
@@ -56,7 +55,6 @@ function EditSubject() {
     <Topbar />
     <Container>
       <Row>
-
       {
           subjectDetail ? 
 
@@ -109,14 +107,8 @@ function EditSubject() {
                       value={values.subject}
                       onChange={handleChange}
                       isValid={touched.subject && !errors.subject}
-
-
-
-                      
+     
                     />
-
-
-
 
                   </Form.Group>
                 </Row>
