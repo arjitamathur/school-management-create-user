@@ -29,8 +29,10 @@ function Subjects() {
 
   const getSubjects = async () => {
     const response = await getAllSubject();
-    setSubject(response.data);
+    const sortedSubjects = response.data.sort((a, b) => b.id - a.id); 
+    setSubject(sortedSubjects);
   };
+
 
   const getClasses = async() => {
     const response =  await getAllClass();
@@ -124,9 +126,9 @@ console.log("list" , subjectList)
               </tr>
             </thead>
             <tbody>
-              {paginatedSubjects.map((data) => (
+              {paginatedSubjects.map((data , index) => (
                 <tr key={data.id}>
-                  <td>{data.id}</td>
+                  <td>{startIndex + index + 1}</td>
                   <td>{data.subject}</td>
                   <td>{data.class}</td>
                   <td>

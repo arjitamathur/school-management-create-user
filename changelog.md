@@ -6,6 +6,8 @@
  - admin cannot be edited or deleted from table [admin-edit-del]
  - added password encryption for Login [password-encryption]
  - classes list coming in descending order [Class-Serialised]
+  - Subjects list coming in descending order [Subject-Serialised]
+ - classes list coming in descending order [Class-Serialised]
 
  
  # Fixed

@@ -12,10 +12,12 @@
     },
     {
       "name": "6",
+      "name": "6",
       "status": "active",
       "id": 3
     },
     {
+      "name": "7",
       "name": "7",
       "status": "active",
       "id": 4
@@ -26,21 +28,6 @@
       "class": "1",
       "subject": "maths",
       "id": 2
-    },
-    {
-      "class": "2",
-      "subject": "science",
-      "id": 3
-    },
-    {
-      "class": "2",
-      "subject": "science",
-      "id": 4
-    },
-    {
-      "class": "2",
-      "subject": "hindi",
-      "id": 5
     }
   ],
   "users": [
@@ -77,6 +64,19 @@
       "email": "teacher@gmail.com",
       "password": "12345678",
       "role": "teacher"
+    },
+    {
+      "name": "rita",
+      "mobile": "",
+      "class": "1",
+      "subjects": [
+        "maths"
+      ],
+      "status": "active",
+      "email": "rita@yama.com",
+      "password": "Rita@12345",
+      "role": "teacher",
+      "id": 7
     },
     {
       "name": "neha",
