@@ -39,9 +39,23 @@ function UserRole() {
 
 
 
+  // const getClasses = async () => {
+  //   const response = await getAllClass();
+  //   setClass(response);
+  // };
+
+
   const getClasses = async () => {
-    const response = await getAllClass();
-    setClass(response);
+    try {
+      const response = await getAllClass();
+      if (Array.isArray(response)) {
+        setClass(response);
+      } else {
+        console.error("Invalid response from getAllClass():", response);
+      }
+    } catch (error) {
+      console.error("Error fetching classes:", error);
+    }
   };
   
   const deleteData = (id) => {
@@ -127,8 +141,8 @@ function UserRole() {
             </Form.Select>
           </Col>
 
-{/* 
-<Col sm={2}>
+
+          <Col sm={2}>
           <Form.Select value={selectedClass} onChange={handleClassChange}>
             <option value="">All Classes</option>
             {classList.map((item) => (
@@ -138,7 +152,6 @@ function UserRole() {
             ))}
           </Form.Select>
         </Col>
- */}
 
           <Col md="auto">
             <Button variant="primary" onClick={onAddUserRole}>

@@ -127,7 +127,7 @@ const Login = () => {
                 />
               </Form.Group>
 
-              <Form.Group
+              {/* <Form.Group
                 className="mb-3 col-lg-6"
                 controlId="formBasicPassword"
               >
@@ -145,6 +145,28 @@ const Login = () => {
                   >
                     {inpval.showPassword ? "Hide" : "Show"}
                   </Button>
+                </InputGroup>
+              </Form.Group> */}
+
+
+
+<Form.Group className="mb-3 col-lg-6" controlId="formBasicPassword">
+                <InputGroup>
+                  <Form.Control
+                    type={inpval.showPassword ? "text" : "password"}
+                    name="password"
+                    onChange={getdata}
+                    placeholder="Password"
+                  />
+                  {inpval.password && (
+                    <Button
+                      variant="outline-secondary"
+                      onClick={togglePasswordVisibility}
+                      className="password-toggle-btn"
+                    >
+                      {inpval.showPassword ? "Hide" : "Show"}
+                    </Button>
+                  )}
                 </InputGroup>
               </Form.Group>
 

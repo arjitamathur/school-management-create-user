@@ -28,3 +28,4 @@
  - updated latest users at 1st [user-serialized]
  - fixed edit profile of user role[fix/editing-userRole]
  - fixed UI of sidebar [fix/interface]
+ - added show and hide password button[fix/button]

@@ -19,6 +19,11 @@
       "name": "5",
       "status": "active",
       "id": 4
+    },
+    {
+      "name": "8",
+      "status": "active",
+      "id": 5
     }
   ],
   "subjects": [
@@ -69,8 +74,8 @@
       ],
       "status": "active",
       "email": "priya@gmail.com",
-      "password": "Priya!123",
-      "role": "teacher"
+      "password": "Priya@123",
+      "role": "student"
     },
     {
       "name": "Neha",
