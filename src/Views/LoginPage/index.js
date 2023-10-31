@@ -150,7 +150,9 @@ const Login = () => {
 
 
 
-<Form.Group className="mb-3 col-lg-6" controlId="formBasicPassword">
+<Form.Group 
+className="mb-3 col-lg-6" 
+controlId="formBasicPassword">
                 <InputGroup>
                   <Form.Control
                     type={inpval.showPassword ? "text" : "password"}

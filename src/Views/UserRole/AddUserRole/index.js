@@ -248,13 +248,14 @@ function AddUserRole() {
                           }}
                           isValid={touched.password && !errors.password}
                         />
-
+ {values.password && ( 
                         <Button
                           variant="outline-secondary"
                           onClick={() => setShowPassword(!showPassword)}
                         >
                           {showPassword ? "Hide" : "Show"}
                         </Button>
+                         )}
                       </InputGroup>
                       {/* {touched.password && errors.password && ( */}
                       {touchedFields.password && errors.password && (
